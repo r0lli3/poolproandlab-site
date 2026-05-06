@@ -3,67 +3,42 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, FlaskConical, Wrench, Droplets, ChevronRight, CheckCircle2 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { getServerT } from "@/lib/i18n/server";
+import { CATEGORIES } from "@/lib/catalog";
 
-export const metadata: Metadata = {
-  title: "Pool Pro&Lab | Thailand's Premier Pool Equipment & Water Testing Lab",
-  description:
-    "Thailand's leading pool equipment supplier and ASEAN's first computerized water testing laboratory. Professional pool services across Bangkok, Chiang Mai, Chiang Rai, and Hua Hin.",
-  openGraph: {
-    title: "Pool Pro&Lab | Pool Equipment, Water Testing Lab & Services",
-    description:
-      "Thailand's leading pool equipment supplier and ASEAN's first computerized water testing laboratory.",
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const { t } = await getServerT();
+  const desc = t("hero.subtitle");
+  return {
+    title: t("common.siteName") + " | " + t("hero.titleLine1") + " " + t("hero.titleLine2"),
+    description: desc,
+    openGraph: {
+      title: t("common.siteName") + " | " + t("common.tagline"),
+      description: desc,
+    },
+  };
+}
 
-const categories = [
-  { name: "Pool Cleaning Robot", img: "/assets/images/category-cleaning-robot.jpg", href: "/shop" },
-  { name: "Pool Cleaning Equipment", img: "/assets/images/category-cleaning-equipment.jpg", href: "/shop" },
-  { name: "Pool Chemicals", img: "/assets/images/category-chemicals.png", href: "/shop" },
-  { name: "Premium Chemicals", img: "/assets/images/category-chemicals-premium.png", href: "/shop" },
-  { name: "Pool Pump", img: "/assets/images/category-pump.png", href: "/shop" },
-  { name: "Salt Chlorinator", img: "/assets/images/category-salt-chlorinator.png", href: "/shop" },
-  { name: "Mineral Swim", img: "/assets/images/category-mineral-swim.png", href: "/shop" },
-];
+export default async function HomePage() {
+  const { t } = await getServerT();
 
-const services = [
-  {
-    icon: FlaskConical,
-    title: "Pool Water Testing Lab",
-    description:
-      "ASEAN's first computerized water analysis laboratory. We check 11 parameters of your pool's chemical balance and provide instant expert recommendations.",
-    href: "/lab",
-    color: "var(--aqua)",
-  },
-  {
-    icon: Droplets,
-    title: "Pool Water Treatment",
-    description:
-      "Advanced water treatment using premium Australian products — sanitizers, pH buffers, clarifiers, and pool protection solutions.",
-    href: "/service",
-    color: "var(--navy)",
-  },
-  {
-    icon: Wrench,
-    title: "Pool Care & Cleaning",
-    description:
-      "Full-service maintenance by trained technicians: vacuum, water balancing, equipment checks, repairs, and water problem elimination.",
-    href: "/service",
-    color: "oklch(0.65 0.18 40)",
-  },
-];
+  const services = [
+    { icon: FlaskConical, key: "lab", href: "/lab", color: "var(--aqua)" as const },
+    { icon: Droplets, key: "treatment", href: "/service", color: "var(--navy)" as const },
+    { icon: Wrench, key: "care", href: "/service", color: "var(--coral)" as const },
+  ];
 
-const stats = [
-  { value: "20+", label: "Years Experience" },
-  { value: "14,000+", label: "Pools Built in Thailand" },
-  { value: "11", label: "Water Parameters Tested" },
-  { value: "4", label: "Branch Locations" },
-];
+  const stats = [
+    { value: "20+", labelKey: "yearsExperience" },
+    { value: "14,000+", labelKey: "poolsBuilt" },
+    { value: "11", labelKey: "parametersTested" },
+    { value: "11", labelKey: "branches" },
+  ];
 
-export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[var(--navy)] via-[oklch(0.22_0.06_230)] to-[oklch(0.18_0.04_220)] text-white">
+      <section className="relative overflow-hidden bg-gradient-to-br from-[var(--navy)] via-[#16263a] to-[#0e1a2a] text-white">
         <div className="absolute inset-0 opacity-5">
           <div
             className="absolute inset-0"
@@ -82,29 +57,28 @@ export default function HomePage() {
                 className="mb-6 bg-[var(--aqua)]/20 text-[var(--aqua)] border-[var(--aqua)]/30 font-heading text-xs tracking-widest uppercase"
                 variant="outline"
               >
-                ASEAN&apos;s #1 Pool Lab
+                {t("hero.badge")}
               </Badge>
               <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-[800] leading-[1.05] mb-6">
-                Pool Equipment
+                {t("hero.titleLine1")}
                 <br />
-                <span className="text-[var(--aqua)]">&amp; Supplies</span>
+                <span className="text-[var(--aqua)]">{t("hero.titleLine2")}</span>
               </h1>
               <p className="text-white/70 text-lg leading-relaxed mb-8 max-w-lg">
-                Thailand&apos;s leading pool equipment supplier, certified water testing laboratory,
-                and professional pool maintenance service — all in one place.
+                {t("hero.subtitle")}
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link
                   href="/shop"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--aqua)] text-white font-heading font-[700] rounded-full hover:opacity-90 transition-opacity"
                 >
-                  Shop Now <ArrowRight className="w-4 h-4" />
+                  {t("common.shopNow")} <ArrowRight className="w-4 h-4" />
                 </Link>
                 <Link
                   href="/lab"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 text-white font-heading font-[600] rounded-full hover:bg-white/20 transition-colors border border-white/20"
                 >
-                  Book Lab Test
+                  {t("common.bookLabTest")}
                 </Link>
               </div>
             </div>
@@ -123,8 +97,8 @@ export default function HomePage() {
                 <div className="flex items-center gap-2">
                   <FlaskConical className="w-5 h-5 text-[var(--aqua)]" />
                   <div>
-                    <p className="font-heading font-[800] text-sm">Water Lab</p>
-                    <p className="text-xs text-[var(--navy)]/60">11 parameters tested</p>
+                    <p className="font-heading font-[800] text-sm">{t("hero.labBadge")}</p>
+                    <p className="text-xs text-[var(--navy)]/60">{t("hero.labBadgeSub")}</p>
                   </div>
                 </div>
               </div>
@@ -134,28 +108,26 @@ export default function HomePage() {
 
         <div className="absolute bottom-0 left-0 right-0 h-16 overflow-hidden">
           <svg viewBox="0 0 1440 64" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-full">
-            <path d="M0 64L60 56C120 48 240 32 360 26.7C480 21.3 600 26.7 720 32C840 37.3 960 42.7 1080 40C1200 37.3 1320 26.7 1380 21.3L1440 16V64H0Z" fill="oklch(0.99 0 0)" />
+            <path d="M0 64L60 56C120 48 240 32 360 26.7C480 21.3 600 26.7 720 32C840 37.3 960 42.7 1080 40C1200 37.3 1320 26.7 1380 21.3L1440 16V64H0Z" fill="#ffffff" />
           </svg>
         </div>
       </section>
 
       {/* Water lab CTA banner */}
-      <section className="bg-[oklch(0.93_0.06_198)] border-y border-[var(--aqua)]/20">
+      <section className="bg-[#cdeef7] border-y border-[var(--aqua)]/20">
         <div className="max-w-7xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <FlaskConical className="w-5 h-5 text-[var(--aqua)] shrink-0" />
             <p className="font-heading font-[700] text-[var(--navy)] text-sm sm:text-base">
-              Pool Water Testing Lab &amp; Supplies —{" "}
-              <span className="font-[400] text-[var(--navy)]/70">
-                ASEAN&apos;s first computerized water analysis lab
-              </span>
+              {t("labBanner.title")} —{" "}
+              <span className="font-[400] text-[var(--navy)]/70">{t("labBanner.subtitle")}</span>
             </p>
           </div>
           <Link
             href="/lab"
             className="shrink-0 inline-flex items-center gap-2 px-5 py-2 bg-[var(--aqua)] text-white font-heading font-[700] rounded-full text-sm hover:opacity-90 transition-opacity"
           >
-            Book Now <ChevronRight className="w-4 h-4" />
+            {t("common.bookNow")} <ChevronRight className="w-4 h-4" />
           </Link>
         </div>
       </section>
@@ -164,42 +136,44 @@ export default function HomePage() {
       <section className="max-w-7xl mx-auto px-6 py-20">
         <div className="text-center mb-12">
           <p className="font-heading text-xs uppercase tracking-widest text-[var(--aqua)] font-[700] mb-3">
-            Explore Our Range
+            {t("categories.eyebrow")}
           </p>
           <h2 className="font-heading text-3xl md:text-4xl font-[800] text-[var(--navy)]">
-            Product Categories
+            {t("categories.title")}
           </h2>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-8 gap-4">
-          {categories.map((cat) => (
+          {CATEGORIES.slice(0, 7).map((cat) => (
             <Link
-              key={cat.name}
-              href={cat.href}
-              className="group flex flex-col items-center gap-3 p-4 rounded-2xl bg-[oklch(0.97_0.005_220)] hover:bg-white hover:shadow-lg hover:-translate-y-1 transition-all duration-200 border border-transparent hover:border-[var(--aqua)]/20"
+              key={cat.slug}
+              href={`/shop/category/${cat.slug}`}
+              className="group flex flex-col items-center gap-3 p-4 rounded-2xl bg-[var(--secondary)] hover:bg-white hover:shadow-lg hover:-translate-y-1 transition-all duration-200 border border-transparent hover:border-[var(--aqua)]/20"
             >
               <div className="relative w-full aspect-square rounded-xl overflow-hidden bg-white">
-                <Image
-                  src={cat.img}
-                  alt={cat.name}
-                  fill
-                  className="object-contain p-2 group-hover:scale-105 transition-transform duration-300"
-                  sizes="150px"
-                />
+                {cat.img ? (
+                  <Image
+                    src={cat.img}
+                    alt={t(`categories.names.${cat.slug}`)}
+                    fill
+                    className="object-contain p-2 group-hover:scale-105 transition-transform duration-300"
+                    sizes="150px"
+                  />
+                ) : null}
               </div>
               <span className="font-heading font-[700] text-xs text-center text-[var(--navy)] leading-tight">
-                {cat.name}
+                {t(`categories.names.${cat.slug}`)}
               </span>
             </Link>
           ))}
           <Link
-            href="/shop"
-            className="group flex flex-col items-center justify-center gap-3 p-4 rounded-2xl border-2 border-dashed border-[var(--aqua)]/30 hover:border-[var(--aqua)] hover:bg-[oklch(0.97_0.02_198)] transition-all duration-200"
+            href="/shop/all"
+            className="group flex flex-col items-center justify-center gap-3 p-4 rounded-2xl border-2 border-dashed border-[var(--aqua)]/30 hover:border-[var(--aqua)] hover:bg-[var(--aqua)]/5 transition-all duration-200"
           >
             <div className="w-12 h-12 rounded-full bg-[var(--aqua)]/10 flex items-center justify-center group-hover:bg-[var(--aqua)]/20 transition-colors">
               <ArrowRight className="w-5 h-5 text-[var(--aqua)]" />
             </div>
-            <span className="font-heading font-[700] text-xs text-center text-[var(--aqua)] leading-tight">
-              View All<br />Products
+            <span className="font-heading font-[700] text-xs text-center text-[var(--aqua)] leading-tight whitespace-pre-line">
+              {t("categories.viewAllProductsTile")}
             </span>
           </Link>
         </div>
@@ -210,11 +184,11 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat) => (
-              <div key={stat.label} className="text-center">
+              <div key={stat.labelKey} className="text-center">
                 <p className="font-heading text-4xl md:text-5xl font-[800] text-[var(--aqua)] mb-2">
                   {stat.value}
                 </p>
-                <p className="text-white/60 text-sm">{stat.label}</p>
+                <p className="text-white/60 text-sm">{t(`stats.${stat.labelKey}`)}</p>
               </div>
             ))}
           </div>
@@ -225,21 +199,21 @@ export default function HomePage() {
       <section className="max-w-7xl mx-auto px-6 py-20">
         <div className="text-center mb-12">
           <p className="font-heading text-xs uppercase tracking-widest text-[var(--aqua)] font-[700] mb-3">
-            What We Do
+            {t("services.eyebrow")}
           </p>
           <h2 className="font-heading text-3xl md:text-4xl font-[800] text-[var(--navy)]">
-            Our Services
+            {t("services.title")}
           </h2>
           <p className="text-[var(--navy)]/60 mt-4 max-w-xl mx-auto leading-relaxed">
-            From water testing to equipment supply and full pool maintenance — we cover every aspect of pool care.
+            {t("services.intro")}
           </p>
         </div>
         <div className="grid md:grid-cols-3 gap-6">
           {services.map((svc) => (
             <Link
-              key={svc.title}
+              key={svc.key}
               href={svc.href}
-              className="group relative overflow-hidden rounded-2xl bg-white border border-[oklch(0.91_0.01_220)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 p-8"
+              className="group relative overflow-hidden rounded-2xl bg-white border border-[var(--border)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 p-8"
             >
               <div
                 className="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
@@ -248,16 +222,16 @@ export default function HomePage() {
                 <svc.icon className="w-6 h-6" style={{ color: svc.color }} />
               </div>
               <h3 className="font-heading font-[700] text-xl text-[var(--navy)] mb-3">
-                {svc.title}
+                {t(`services.${svc.key}.title`)}
               </h3>
               <p className="text-[var(--navy)]/60 text-sm leading-relaxed mb-5">
-                {svc.description}
+                {t(`services.${svc.key}.description`)}
               </p>
               <span
                 className="inline-flex items-center gap-1.5 text-sm font-heading font-[700]"
                 style={{ color: svc.color }}
               >
-                Learn More <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                {t("common.learnMore")} <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </span>
             </Link>
           ))}
@@ -265,7 +239,7 @@ export default function HomePage() {
       </section>
 
       {/* Lab Feature */}
-      <section className="bg-gradient-to-br from-[oklch(0.97_0.02_198)] to-white py-20">
+      <section className="bg-gradient-to-br from-[#e6f6fa] to-white py-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="relative rounded-2xl overflow-hidden aspect-[4/3] shadow-xl">
@@ -280,28 +254,19 @@ export default function HomePage() {
             </div>
             <div>
               <p className="font-heading text-xs uppercase tracking-widest text-[var(--aqua)] font-[700] mb-4">
-                Pool Water Testing Lab
+                {t("labFeature.eyebrow")}
               </p>
               <h2 className="font-heading text-3xl md:text-4xl font-[800] text-[var(--navy)] mb-4">
-                Is Your Pool Water
+                {t("labFeature.titleLine1")}
                 <br />
-                <span className="text-[var(--aqua)]">Health Enough to Swim?</span>
+                <span className="text-[var(--aqua)]">{t("labFeature.titleLine2")}</span>
               </h2>
-              <p className="text-[var(--navy)]/70 leading-relaxed mb-6">
-                Because you never know what lies beneath the sparkling blue water in your swimming pool.
-                Poor water quality can cause damaged hair, skin problems, tooth decay, respiratory
-                infections, and pink eye.
-              </p>
+              <p className="text-[var(--navy)]/70 leading-relaxed mb-6">{t("labFeature.body")}</p>
               <ul className="space-y-3 mb-8">
-                {[
-                  "11 water parameters checked",
-                  "Computerized water analysis",
-                  "First certified lab in ASEAN",
-                  "Results and recommendations within 7 days",
-                ].map((item) => (
-                  <li key={item} className="flex items-center gap-3 text-sm text-[var(--navy)]/80">
+                {(["bullet1", "bullet2", "bullet3", "bullet4"] as const).map((b) => (
+                  <li key={b} className="flex items-center gap-3 text-sm text-[var(--navy)]/80">
                     <CheckCircle2 className="w-5 h-5 text-[var(--aqua)] shrink-0" />
-                    {item}
+                    {t(`labFeature.${b}`)}
                   </li>
                 ))}
               </ul>
@@ -309,7 +274,7 @@ export default function HomePage() {
                 href="/lab"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--aqua)] text-white font-heading font-[700] rounded-full hover:opacity-90 transition-opacity"
               >
-                Learn About Our Lab <ArrowRight className="w-4 h-4" />
+                {t("labFeature.cta")} <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </div>
@@ -330,27 +295,26 @@ export default function HomePage() {
         <div className="absolute right-0 top-0 bottom-0 w-1/3 bg-gradient-to-l from-[var(--aqua)]/10 to-transparent" />
         <div className="relative max-w-7xl mx-auto px-6 text-center">
           <p className="font-heading text-xs uppercase tracking-widest text-[var(--aqua)] font-[700] mb-4">
-            Business Opportunity
+            {t("franchiseCta.eyebrow")}
           </p>
           <h2 className="font-heading text-3xl md:text-4xl font-[800] mb-4">
-            1st Pool Service Franchise in Asia
+            {t("franchiseCta.title")}
           </h2>
           <p className="text-white/70 max-w-xl mx-auto mb-8 leading-relaxed">
-            Thailand has the highest rate of pool ownership in Asia and the industry continues to grow.
-            Join our franchise network and build a highly profitable business.
+            {t("franchiseCta.body")}
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link
               href="/franchise-concept"
               className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--aqua)] text-white font-heading font-[700] rounded-full hover:opacity-90 transition-opacity"
             >
-              Learn About Franchise <ArrowRight className="w-4 h-4" />
+              {t("franchiseCta.primaryCta")} <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
               href="/howtoapply"
               className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 text-white font-heading font-[600] rounded-full hover:bg-white/20 transition-colors border border-white/20"
             >
-              How to Apply
+              {t("franchiseCta.secondaryCta")}
             </Link>
           </div>
         </div>

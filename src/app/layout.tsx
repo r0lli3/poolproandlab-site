@@ -1,20 +1,29 @@
 import type { Metadata } from "next";
-import { Syne, Nunito_Sans } from "next/font/google";
+import { Space_Grotesk, Inter, Noto_Sans_Thai } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { I18nProvider } from "@/lib/i18n/client";
+import { getServerLocale } from "@/lib/i18n/server";
 
-const syne = Syne({
-  variable: "--font-syne",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-display",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
-const nunitoSans = Nunito_Sans({
-  variable: "--font-nunito",
+const inter = Inter({
+  variable: "--font-body",
   subsets: ["latin"],
-  weight: ["300", "400", "600", "700"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
+
+const notoThai = Noto_Sans_Thai({
+  variable: "--font-thai",
+  subsets: ["thai"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -33,20 +42,24 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getServerLocale();
+
   return (
     <html
-      lang="en"
-      className={`${syne.variable} ${nunitoSans.variable} h-full`}
+      lang={locale}
+      className={`${spaceGrotesk.variable} ${inter.variable} ${notoThai.variable} h-full`}
     >
       <body className="min-h-full flex flex-col antialiased">
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <I18nProvider locale={locale}>
+          <Header locale={locale} />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </I18nProvider>
       </body>
     </html>
   );

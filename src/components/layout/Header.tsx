@@ -5,28 +5,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, ChevronDown, Phone, Mail } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useT } from "@/lib/i18n/client";
+import { LocaleToggle } from "@/components/layout/LocaleToggle";
+import type { Locale } from "@/lib/i18n/locale";
 
-const navLinks = [
-  { label: "Home", href: "/" },
-  { label: "Shop", href: "/shop" },
-  { label: "Water Lab", href: "/lab" },
-  { label: "Services", href: "/service" },
-  { label: "News", href: "/news" },
-  {
-    label: "Franchise",
-    href: "#",
-    children: [
-      { label: "Franchise Concept", href: "/franchise-concept" },
-      { label: "Benefits", href: "/benefits" },
-      { label: "How to Apply", href: "/howtoapply" },
-      { label: "FAQs", href: "/faqs" },
-      { label: "Business Contact", href: "/business-contact" },
-    ],
-  },
-  { label: "Contact Us", href: "/contactus" },
-];
-
-export function Header() {
+export function Header({ locale }: { locale: Locale }) {
+  const { t } = useT();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [franchiseOpen, setFranchiseOpen] = useState(false);
@@ -37,13 +21,36 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const navLinks = [
+    { label: t("nav.home"), href: "/" },
+    { label: t("nav.shop"), href: "/shop" },
+    { label: t("nav.lab"), href: "/lab" },
+    { label: t("nav.service"), href: "/service" },
+    { label: t("nav.news"), href: "/news" },
+    {
+      label: t("nav.franchise"),
+      href: "#",
+      children: [
+        { label: t("nav.franchiseConcept"), href: "/franchise-concept" },
+        { label: t("nav.benefits"), href: "/benefits" },
+        { label: t("nav.howToApply"), href: "/howtoapply" },
+        { label: t("nav.faqs"), href: "/faqs" },
+        { label: t("nav.businessContact"), href: "/business-contact" },
+      ],
+    },
+    { label: t("nav.contact"), href: "/contactus" },
+  ];
+
+  const navItemClass =
+    "px-3 py-2 text-sm font-heading font-[600] text-[var(--navy)] hover:text-[var(--aqua)] transition-colors rounded-md";
+
   return (
     <>
       {/* Top bar */}
       <div className="bg-[var(--navy)] text-white/80 text-xs hidden md:block">
-        <div className="max-w-7xl mx-auto px-6 py-2 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-6 py-2 flex items-center justify-between gap-4">
           <span className="font-heading tracking-widest uppercase text-white/50 text-[10px]">
-            Pool Water Testing Lab &amp; Supplies
+            {t("topBar.blurb")}
           </span>
           <div className="flex items-center gap-6">
             <a
@@ -60,6 +67,7 @@ export function Header() {
               <Mail className="w-3 h-3" />
               info@poolproandlab.com
             </a>
+            <LocaleToggle current={locale} variant="dark" />
           </div>
         </div>
       </div>
@@ -73,15 +81,15 @@ export function Header() {
             : "bg-white"
         )}
       >
-        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 shrink-0">
             <Image
-              src="/assets/logos/logo-site.jpg"
+              src="/assets/logos/ppl-logo.jpg"
               alt="Pool Pro&Lab"
-              width={120}
-              height={44}
-              className="h-10 w-auto object-contain"
+              width={180}
+              height={64}
+              className="h-14 w-auto object-contain"
               priority
             />
           </Link>
@@ -92,7 +100,7 @@ export function Header() {
               link.children ? (
                 <div key={link.label} className="relative group">
                   <button
-                    className="flex items-center gap-1 px-3 py-2 text-sm font-heading font-600 text-[var(--navy)] hover:text-[var(--aqua)] transition-colors rounded-md"
+                    className={cn(navItemClass, "flex items-center gap-1")}
                     onMouseEnter={() => setFranchiseOpen(true)}
                     onMouseLeave={() => setFranchiseOpen(false)}
                   >
@@ -107,7 +115,7 @@ export function Header() {
                     onMouseEnter={() => setFranchiseOpen(true)}
                     onMouseLeave={() => setFranchiseOpen(false)}
                   >
-                    <div className="bg-white rounded-xl shadow-xl border border-[oklch(0.91_0.01_220)] py-2 min-w-[200px]">
+                    <div className="bg-white rounded-xl shadow-xl border border-[oklch(0.91_0.01_220)] py-2 min-w-[220px]">
                       {link.children.map((child) => (
                         <Link
                           key={child.href}
@@ -121,11 +129,7 @@ export function Header() {
                   </div>
                 </div>
               ) : (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="px-3 py-2 text-sm font-heading font-[600] text-[var(--navy)] hover:text-[var(--aqua)] transition-colors rounded-md"
-                >
+                <Link key={link.href} href={link.href} className={navItemClass}>
                   {link.label}
                 </Link>
               )
@@ -134,7 +138,7 @@ export function Header() {
               href="/contactus"
               className="ml-2 px-5 py-2 bg-[var(--aqua)] text-white text-sm font-heading font-[700] rounded-full hover:opacity-90 transition-opacity"
             >
-              Book Lab Test
+              {t("common.bookLabTest")}
             </Link>
           </nav>
 
@@ -151,13 +155,16 @@ export function Header() {
         {/* Mobile menu */}
         {mobileOpen && (
           <div className="lg:hidden bg-white border-t border-[oklch(0.91_0.01_220)] px-6 py-4 space-y-1">
-            <div className="mb-4 pb-4 border-b border-[oklch(0.91_0.01_220)] flex flex-col gap-2 text-sm text-[var(--navy)]/70">
-              <a href="tel:0818445564" className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-[var(--aqua)]" /> 081-844-5564
-              </a>
-              <a href="mailto:info@poolproandlab.com" className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-[var(--aqua)]" /> info@poolproandlab.com
-              </a>
+            <div className="mb-4 pb-4 border-b border-[oklch(0.91_0.01_220)] flex items-center justify-between gap-3">
+              <div className="flex flex-col gap-2 text-sm text-[var(--navy)]/70">
+                <a href="tel:0818445564" className="flex items-center gap-2">
+                  <Phone className="w-4 h-4 text-[var(--aqua)]" /> 081-844-5564
+                </a>
+                <a href="mailto:info@poolproandlab.com" className="flex items-center gap-2">
+                  <Mail className="w-4 h-4 text-[var(--aqua)]" /> info@poolproandlab.com
+                </a>
+              </div>
+              <LocaleToggle current={locale} variant="light" />
             </div>
             {navLinks.map((link) =>
               link.children ? (
@@ -206,7 +213,7 @@ export function Header() {
                 className="block text-center px-5 py-2.5 bg-[var(--aqua)] text-white text-sm font-heading font-[700] rounded-full hover:opacity-90 transition-opacity"
                 onClick={() => setMobileOpen(false)}
               >
-                Book Lab Test
+                {t("common.bookLabTest")}
               </Link>
             </div>
           </div>

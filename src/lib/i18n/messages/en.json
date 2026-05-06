@@ -1,0 +1,447 @@
+{
+  "common": {
+    "siteName": "Pool Pro&Lab",
+    "tagline": "Pool Water Testing Lab & Supplies",
+    "language": "Language",
+    "learnMore": "Learn More",
+    "viewMore": "View More",
+    "shopNow": "Shop Now",
+    "bookNow": "Book Now",
+    "bookLabTest": "Book Lab Test",
+    "contactUs": "Contact Us",
+    "viewOnMap": "View on Map",
+    "callUs": "Call Us",
+    "emailUs": "Email Us",
+    "chatOnLine": "Chat on Line",
+    "sendMessage": "Send Message",
+    "loading": "Loading...",
+    "submit": "Submit",
+    "currency": "THB",
+    "getInTouch": "Get in Touch",
+    "comingSoon": "Coming Soon",
+    "readMore": "Read More",
+    "viewAll": "View All",
+    "all": "All"
+  },
+  "nav": {
+    "home": "Home",
+    "shop": "Shop",
+    "allProducts": "All Products",
+    "lab": "Water Lab",
+    "service": "Services",
+    "news": "News",
+    "franchise": "Franchise",
+    "franchiseConcept": "Franchise Concept",
+    "benefits": "Benefits",
+    "howToApply": "How to Apply",
+    "faqs": "FAQs",
+    "businessContact": "Business Contact",
+    "contact": "Contact Us"
+  },
+  "topBar": {
+    "blurb": "Pool Water Testing Lab & Supplies"
+  },
+  "hero": {
+    "badge": "ASEAN's #1 Pool Lab",
+    "titleLine1": "Pool Equipment",
+    "titleLine2": "& Supplies",
+    "subtitle": "Thailand's leading pool equipment supplier, certified water testing laboratory, and professional pool maintenance service — all in one place.",
+    "labBadge": "Water Lab",
+    "labBadgeSub": "11 parameters tested"
+  },
+  "labBanner": {
+    "title": "Pool Water Testing Lab & Supplies",
+    "subtitle": "ASEAN's first computerized water analysis lab"
+  },
+  "categories": {
+    "eyebrow": "Explore Our Range",
+    "title": "Product Categories",
+    "viewAll": "View All Products",
+    "browseByCategory": "Browse by Category",
+    "viewAllProductsTile": "View All\nProducts",
+    "allProductsTile": "All\nProducts",
+    "category": "Category",
+    "names": {
+      "pool-cleaning-robot": "Pool Cleaning Robot",
+      "pool-cleaning-equipment": "Pool Cleaning Equipment",
+      "pool-chemicals": "Pool Chemicals",
+      "premium-chemicals": "Premium Chemicals",
+      "pool-pump": "Pool Pump",
+      "pool-filter": "Pool Filter System",
+      "salt-chlorinator": "Salt Chlorinator",
+      "mineral-swim": "Mineral Swim",
+      "underwater-light": "Underwater Light",
+      "filter-components": "Filter Components",
+      "pool-fitting": "Pool Fitting",
+      "valve": "Valve",
+      "water-testing": "Pool Water Testing",
+      "fastlane": "FastLane",
+      "heat-pump": "Heat Pump"
+    }
+  },
+  "stats": {
+    "yearsExperience": "Years Experience",
+    "poolsBuilt": "Pools Built in Thailand",
+    "parametersTested": "Water Parameters Tested",
+    "branches": "Branch Locations"
+  },
+  "services": {
+    "eyebrow": "What We Do",
+    "title": "Our Services",
+    "intro": "From water testing to equipment supply and full pool maintenance — we cover every aspect of pool care.",
+    "lab": {
+      "title": "Pool Water Testing Lab",
+      "description": "ASEAN's first computerized water analysis laboratory. We check 11 parameters of your pool's chemical balance and provide instant expert recommendations."
+    },
+    "treatment": {
+      "title": "Pool Water Treatment",
+      "description": "Advanced water treatment using premium Australian products — sanitizers, pH buffers, clarifiers, and pool protection solutions."
+    },
+    "care": {
+      "title": "Pool Care & Cleaning",
+      "description": "Full-service maintenance by trained technicians: vacuum, water balancing, equipment checks, repairs, and water problem elimination."
+    }
+  },
+  "labFeature": {
+    "eyebrow": "Pool Water Testing Lab",
+    "titleLine1": "Is Your Pool Water",
+    "titleLine2": "Health Enough to Swim?",
+    "body": "Because you never know what lies beneath the sparkling blue water in your swimming pool. Poor water quality can cause damaged hair, skin problems, tooth decay, respiratory infections, and pink eye.",
+    "bullet1": "11 water parameters checked",
+    "bullet2": "Computerized water analysis",
+    "bullet3": "First certified lab in ASEAN",
+    "bullet4": "Results and recommendations within 7 days",
+    "cta": "Learn About Our Lab"
+  },
+  "franchiseCta": {
+    "eyebrow": "Business Opportunity",
+    "title": "1st Pool Service Franchise in Asia",
+    "body": "Thailand has the highest rate of pool ownership in Asia and the industry continues to grow. Join our franchise network and build a highly profitable business.",
+    "primaryCta": "Learn About Franchise",
+    "secondaryCta": "How to Apply"
+  },
+  "shopPage": {
+    "heroBadge": "Pool Equipment & Supplies",
+    "heroTitle": "Shop Pool Equipment",
+    "heroSubtitle": "Over 124 products across 15 categories. Thailand's most complete pool equipment range, backed by expert advice.",
+    "browseTitle": "Browse by Category",
+    "viewAllProducts": "View All Products",
+    "featured": "Featured Products",
+    "ctaTitle": "{count}+ Products Available",
+    "ctaBody": "Our full catalog includes over {count} pool products. Contact us directly for pricing, availability, and expert recommendations tailored to your pool.",
+    "allHeroBadge": "Full Catalog",
+    "allHeroTitle": "All Products",
+    "allHeroSubtitle": "Every product across every category. Featured items shown below — contact us for the complete catalog with pricing.",
+    "categoryBack": "All Categories",
+    "categoryEmptyBody": "Product details for this category are available on request. Contact us for the full {category} range, pricing, and recommendations tailored to your pool.",
+    "categoryCtaTitle": "Get pricing for {category}",
+    "categoryCtaBody": "Our team has the full catalog and can recommend the right product for your pool size, usage, and water profile.",
+    "lookingTitle": "Looking for something specific?",
+    "lookingBody": "Our full catalog includes over 124 products across 15 categories. Contact us for pricing, availability, and expert recommendations.",
+    "contactForPrice": "Contact for Price"
+  },
+  "contact": {
+    "eyebrow": "Get in Touch",
+    "title": "Contact Us",
+    "subtitle": "Pool Water Testing Lab and Supplies",
+    "branchesEyebrow": "Find Us",
+    "branchesTitle": "Our Branches",
+    "formEyebrow": "Send a Message",
+    "formTitle": "Get in Touch",
+    "formBody": "Have a question about pool water testing, equipment, or services? Send us a message and we'll get back to you promptly."
+  },
+  "form": {
+    "fullName": "Full Name",
+    "namePlaceholder": "Your name",
+    "email": "Email Address",
+    "emailPlaceholder": "your@email.com",
+    "phone": "Phone Number",
+    "phonePlaceholder": "0xx-xxx-xxxx",
+    "subject": "Subject",
+    "subjectPlaceholder": "How can we help?",
+    "message": "Message",
+    "messagePlaceholder": "Tell us about your pool, your question, or the service you need...",
+    "submit": "Send Message",
+    "sending": "Sending...",
+    "successTitle": "Message Sent!",
+    "successBody": "Thank you for contacting Pool Pro&Lab. We'll get back to you soon.",
+    "sendAnother": "Send another message",
+    "errorBody": "Something went wrong. Please try again or call us directly.",
+    "required": "*"
+  },
+  "footer": {
+    "about": "We have set up our own laboratory which is fully equipped with high-technology devices for water testing. The first computerized water analysis laboratory in ASEAN.",
+    "shop": "Shop",
+    "services": "Services",
+    "customerService": "Customer Service",
+    "bangkokHq": "Bangkok HQ",
+    "branchesCount": "11 locations across Thailand",
+    "findBranch": "Find your nearest branch →",
+    "rights": "All rights reserved. Part of J.D. Pools Group.",
+    "sitemap": "Sitemap",
+    "privacy": "Privacy",
+    "links": {
+      "robot": "Pool Cleaning Robot",
+      "chemicals": "Pool Chemicals",
+      "pumps": "Pool Pumps",
+      "salt": "Salt Chlorinator",
+      "mineral": "Mineral Swim",
+      "lab": "Water Testing Lab",
+      "ourServices": "Our Services",
+      "maintenance": "Pool Maintenance",
+      "newsActivities": "News & Activities",
+      "contact": "Contact Us"
+    }
+  },
+  "labPage": {
+    "metaDesc": "ASEAN's first computerized pool water analysis laboratory. We check 11 parameters of your pool's chemical balance. Bring your water sample or book a collection service.",
+    "heroBadge": "Water Testing Lab",
+    "heroTitle": "Pool Water Testing Lab",
+    "heroSubtitle": "The first computerized water analysis laboratory in ASEAN",
+    "tagline": "\"Because you never know what lies beneath the sparkling blue water in your swimming pool…\"",
+    "whyEyebrow": "Why It Matters",
+    "whyTitle1": "Is Your Pool Water",
+    "whyTitle2": "Health Enough to Swim?",
+    "whyIntro": "Did you know? When you take a swim in your pool this may cause a risk for health issues such as:",
+    "risks": {
+      "hair": "Damaged hair and scalp",
+      "skin": "Skin problems and irritation",
+      "tooth": "Tooth decay",
+      "respiratory": "Respiratory infections",
+      "pinkEye": "Pink eye (conjunctivitis)"
+    },
+    "whyOutro": "Because your pool water may not be good enough quality. Our computerized lab catches problems before they affect you and your family.",
+    "parametersLabel": "Parameters Tested",
+    "checkupEyebrow": "Our Process",
+    "checkupTitle": "Pool Water Check Up",
+    "checkupBody": "Our Pool Water Check Up program checks 11 parameters of the water chemical balance and evaluates whether your swimming pool is in ideal condition — using computerized water analysis. The first laboratory of its kind in ASEAN.",
+    "parameters": {
+      "freeChlorine": "Free Chlorine",
+      "totalChlorine": "Total Chlorine",
+      "ph": "pH Level",
+      "totalAlkalinity": "Total Alkalinity",
+      "calcium": "Calcium Hardness",
+      "cyanuric": "Cyanuric Acid",
+      "tds": "Total Dissolved Solids",
+      "iron": "Iron",
+      "copper": "Copper",
+      "salt": "Salt Level",
+      "temp": "Water Temperature"
+    },
+    "stepsEyebrow": "Simple Process",
+    "stepsTitle": "Easy Way to Get the Water Test",
+    "step1Title": "Bring Your Water Sample",
+    "step1Desc": "Bring the water sample to any Pool Pro&Lab branch and get results and recommendations instantly.",
+    "step2Title": "Expert Collection Service",
+    "step2Desc": "Our team of experts can collect the water sample from your location and provide results within 7 days.",
+    "step3Title": "Instant Recommendations",
+    "step3Desc": "Receive a computerized report with precise treatment recommendations to restore perfect water balance.",
+    "ctaTitle": "Ready to Test Your Pool Water?",
+    "ctaBody": "Visit any of our 11 branches across Thailand or contact us to arrange a water sample collection.",
+    "ctaPrimary": "Book Now",
+    "ctaSecondary": "Our Services"
+  },
+  "servicePage": {
+    "metaDesc": "Computerized pool water testing, advanced water treatment with Australian products, pool care & cleaning, equipment repair, and water problem elimination.",
+    "heroEyebrow": "Professional Pool Care",
+    "heroTitle": "Our Services",
+    "heroSubtitle": "Purify your swimming pool",
+    "lab": {
+      "title": "Computerized Pool Water Lab",
+      "description": "A more advanced water testing method than the regular practice, where our laboratory specialists will analyze as many as 11 variables of the water chemical balance and evaluate whether your swimming pool is in the ideal condition to swim in or not. We will make our recommendations and show you step by step on how to care for your pool water."
+    },
+    "treatment": {
+      "title": "Advance Water Treatment",
+      "description": "Based on use of premium Australian imported products:",
+      "feature1": "Sanitizer & Balancer",
+      "feature2": "Calcium & pH Buffer",
+      "feature3": "Crystal Clear Clarifier & Pool Solutions",
+      "feature4": "Pool Protection"
+    },
+    "care": {
+      "title": "Pool Care & Cleaning",
+      "description": "Our Pool Pro&Lab technicians will provide a range of essential maintenance services uniquely tailored to your pool. From a full vacuum to water balancing and equipment checks, we will ensure your pool remains in tip top condition."
+    },
+    "maintenance": {
+      "title": "Pool Maintenance, Equipment & Repair",
+      "description": "Regular or casual pool servicing. Let us take care of your pool year-round, delivered by highly-trained and experienced technicians.",
+      "feature1": "Filter Repair & Change Filter Media",
+      "feature2": "Salt Chlorinator Repair",
+      "feature3": "Robot Parts Replacement",
+      "feature4": "Pool Pumps Repair",
+      "feature5": "Under Water Light Repair",
+      "feature6": "General Equipment Repair"
+    },
+    "eliminator": {
+      "title": "Water Problem Eliminator",
+      "description": "We diagnose and solve any pool water problem quickly and effectively:",
+      "feature1": "Clear Algae Water",
+      "feature2": "Clear Cloudy Water",
+      "feature3": "Pool Flocking",
+      "feature4": "Stains Removal",
+      "feature5": "Eliminate Over-Chlorine Levels",
+      "feature6": "Water Discolorations",
+      "feature7": "Filter Cleaning"
+    },
+    "ctaTitle": "Ready to Keep Your Pool in Perfect Condition?",
+    "ctaBody": "Contact us today to book any of our professional pool services across our 11 branches in Thailand.",
+    "ctaPrimary": "Get in Touch"
+  },
+  "franchisePage": {
+    "metaDesc": "Join ASEAN's first pool service franchise. Pool Pro&Lab — 1st pool service franchise in Asia. Thailand has the highest pool ownership rate in Asia. Complete support structure.",
+    "heroEyebrow": "Business Opportunity",
+    "heroTitle": "Franchise Concept",
+    "heroSubtitle": "Pool Water Testing Lab and Supplies",
+    "badgeTitle": "1st Pool Service Franchise in Asia",
+    "badgeSubtitle": "A challenging and rewarding business with high profitability and freedom",
+    "highlights": {
+      "growth": {
+        "title": "Highest Growth Market",
+        "desc": "Thailand has the highest rate of pool ownership in Asia and the industry continues to grow."
+      },
+      "support": {
+        "title": "Complete Support Structure",
+        "desc": "Showroom design template, operation & marketing support, brand & trademark name."
+      },
+      "proven": {
+        "title": "Proven Business Model",
+        "desc": "J.D. Pools: 20+ years in business, 14,000+ pools built, 20 showrooms across Thailand."
+      },
+      "commercial": {
+        "title": "Commercial & Retail Solution",
+        "desc": "Full pool retail & wholesale store combined with a water testing laboratory."
+      }
+    },
+    "profileEyebrow": "Company Profile",
+    "profileTitle": "20 Years of Pool Expertise",
+    "profileP1": "J.D. Pools has been in the swimming pool business for over 20 years, during which we have built more than 14,000 pools in Thailand. We are the first company in Thailand to export swimming pools, and now export a wide variety of products to more than 20 countries.",
+    "profileP2": "We have 20 showrooms around the country, providing construction, installation, and maintenance services to all types of customers.",
+    "profileP3": "We have set up our own laboratory which is fully equipped with high-technology devices for water testing. We collect samples of water and test them with Smart Scan kits to determine the quality of water.",
+    "shopEyebrow": "What You Get",
+    "shopTitle": "Pool Equipment Store + Water Testing Lab",
+    "shopP1": "The increasing number of swimming pools creates higher demand for pool accessories and maintenance services. To satisfy this demand, Pool Pro&Lab combines a full retail/wholesale store with a state-of-the-art water analysis laboratory.",
+    "shopP2": "Our water treatment recommendations are based on premium Australian imported water care products — the most advanced available.",
+    "stat1": "Countries served",
+    "stat2": "Pools built",
+    "stat3": "Showrooms in Thailand",
+    "ctaTitle": "Ready to Join the Pool Pro&Lab Family?",
+    "ctaBody": "Explore benefits, learn how to apply, and get your questions answered.",
+    "ctaPrimary": "View Benefits",
+    "ctaSecondary": "How to Apply"
+  },
+  "benefitsPage": {
+    "metaDesc": "Benefits of joining Pool Pro&Lab franchise — trade name rights, special pricing, showroom design, staff training, marketing support, and a complete business support system.",
+    "heroEyebrow": "Franchise Program",
+    "heroTitle": "Benefits for Franchisees",
+    "heroSubtitle": "Everything you need to build a successful pool service business",
+    "rightsEyebrow": "What You Receive",
+    "rightsTitle": "Benefits for Franchisees",
+    "right1": "The right to use our trade name, business format and logo which have already gained awareness and credibility",
+    "right2": "The right to buy quality products from us at special price",
+    "right3": "Assistance in the design and decoration of outlets according to our prototypes and standards",
+    "right4": "Staff training",
+    "right5": "Operations and management manuals provided",
+    "supportEyebrow": "Ongoing Support",
+    "supportTitle": "Superior Business System & Support Program",
+    "supportIntro": "The franchisee will get comprehensive support in the following areas:",
+    "support1": "Outlet management",
+    "support2": "Operations",
+    "support3": "Marketing",
+    "support4": "Procurement",
+    "support5": "Accounting, auditing and legal matters",
+    "support6": "Business consultation",
+    "support7": "Research and development",
+    "trainingEyebrow": "Get Ready to Succeed",
+    "trainingTitle": "Training Program",
+    "trainingBody": "The training program is carefully designed to help franchisees and their employees gain insights into our products and services and find the ways to attain continuous growth and prosperity. The training covers production processes, international standards, and business administration.",
+    "phase1Label": "Phase 1",
+    "phase1Desc": "Training at head office",
+    "phase2Label": "Phase 2",
+    "phase2Desc": "On-site training in outlets",
+    "ctaTitle": "Ready to Get Started?",
+    "ctaPrimary": "How to Apply",
+    "ctaSecondary": "Read FAQs"
+  },
+  "howToApplyPage": {
+    "metaDesc": "Step-by-step guide to applying for a Pool Pro&Lab franchise. 6 steps: application form, initial meeting, financial verification, franchise agreement, training, and branch opening.",
+    "heroEyebrow": "Join Our Franchise",
+    "heroTitle": "How to Apply",
+    "heroSubtitle": "Steps for Franchise Application",
+    "step1Title": "Complete Franchise Application Form",
+    "step1Desc": "Complete the franchise application form and send it to the Franchise Manager.",
+    "step1Detail": "Email: business-contact@poolproandlab.com | Tel. Contact our franchise team",
+    "step2Title": "Franchise Initial Meeting",
+    "step2Desc": "Franchise Initial meeting. The preliminary qualification of the applicant will be considered and an appointment will be made for the interview.",
+    "step3Title": "Financial Verification",
+    "step3Desc": "If the preliminary qualification meets the standard required, Pool Pro&Lab will provide details of the business.",
+    "step4Title": "Franchise Agreement",
+    "step4Desc": "Franchise agreement is signed.",
+    "step5Title": "Training Program",
+    "step5Desc": "Pool Pro&Lab will provide a comprehensive training course for franchisee staff — covering products, services, operations, and business management.",
+    "step6Title": "Branch Setup and Opening",
+    "step6Desc": "The office will be set up and decorated ready to operate. Pool Pro&Lab will send a staff member to coach during the beginning of the operation.",
+    "applyTitle": "Send Your Application",
+    "applyBody": "Ready to start your journey? Contact our franchise team to get the application form and begin the process.",
+    "applyCta": "Contact Franchise Team",
+    "applyNote": "⚠️ Note: Please contact us for the most current franchise contact information."
+  },
+  "faqsPage": {
+    "metaDesc": "Frequently asked questions about the Pool Pro&Lab franchise program — application process, training, support, ongoing benefits, and franchisee rights.",
+    "heroEyebrow": "Got Questions?",
+    "heroTitle": "FAQs",
+    "heroSubtitle": "Questions & Answers about our franchise program",
+    "stillQuestions": "Still have questions? Contact our franchise team directly.",
+    "contactCta": "Contact Franchise Team",
+    "items": {
+      "decoration": {
+        "q": "How long does the shop decoration take before opening for business?",
+        "a": "About 4 months from the time the franchise agreement is signed and location is confirmed."
+      },
+      "investment": {
+        "q": "What will the franchisee get in return for its initial investment?",
+        "a": "The initial investment includes: shop decoration as per prototype (depending on the location), all essential equipment and facilities, signage and supplies, assistance in marketing and advertising campaign, staff training, and continuous operation support."
+      },
+      "minOrder": {
+        "q": "Is a minimum order imposed?",
+        "a": "It depends on the location. Our franchise team will discuss the specifics with you during the initial meeting."
+      },
+      "location": {
+        "q": "Will the franchisor assist in location selection?",
+        "a": "Yes — we have a team of experts who can recommend the most viable location. We can negotiate the rental charge on your behalf. We also have some prime areas for you to choose from."
+      },
+      "process": {
+        "q": "What is the franchise application process?",
+        "a": "The process has 6 steps: complete franchise application form, attend initial meeting and interview, financial status assessment, franchise contract signing, training program, and finally outlet decoration and opening."
+      },
+      "training": {
+        "q": "What training does Pool Pro&Lab provide?",
+        "a": "We provide a comprehensive training program in two phases. Phase 1 is at our head office, covering products, services, and operations. Phase 2 is on-site training in your outlet, with a Pool Pro&Lab staff member to coach you during the beginning of the operation."
+      },
+      "support": {
+        "q": "What ongoing support is available after opening?",
+        "a": "Franchisees receive ongoing support in: outlet management, operations, marketing, procurement, accounting and legal matters, business consultation, and research and development."
+      },
+      "expand": {
+        "q": "Can I expand my franchise to multiple locations?",
+        "a": "Yes. Pool Pro&Lab wants each franchisee to run a full-time business and achieve ownership success. Franchisees have the right to extend their business when they are ready to do so."
+      }
+    }
+  },
+  "businessContactPage": {
+    "metaDesc": "Interested in a Pool Pro&Lab franchise? Contact our business development team to learn more about franchise opportunities.",
+    "heroEyebrow": "Franchise Inquiry",
+    "heroTitle": "Franchise Contact",
+    "heroSubtitle": "Interested in becoming a Pool Pro&Lab franchisee?",
+    "formTitle": "Franchise Inquiry Form",
+    "formSubtitle": "Our team will respond within 2 business days"
+  },
+  "newsPage": {
+    "metaDesc": "Latest news, promotions, and activities from Pool Pro&Lab. Stay updated on pool equipment, water care tips, and company events.",
+    "heroEyebrow": "Latest Updates",
+    "heroTitle": "News & Activities",
+    "heroSubtitle": "Stay up to date with Pool Pro&Lab",
+    "comingSoonTitle": "Content Coming Soon",
+    "comingSoonBody": "We're currently updating our news section with fresh content. In the meantime, follow us on social media or contact us to learn about the latest promotions and activities from Pool Pro&Lab.",
+    "facebookCta": "Follow on Facebook"
+  }
+}
