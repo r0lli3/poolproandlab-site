@@ -108,6 +108,22 @@ export default async function ContactPage() {
         </div>
       </section>
 
+      {/* Contact Form */}
+      <section className="bg-[var(--secondary)] py-20">
+        <div className="max-w-3xl mx-auto px-6">
+          <div className="text-center mb-10">
+            <p className="font-heading text-xs uppercase tracking-widest text-[var(--aqua)] font-[700] mb-3">
+              {t("contact.formEyebrow")}
+            </p>
+            <h2 className="font-heading text-2xl md:text-3xl font-[800] text-[var(--navy)]">
+              {t("contact.formTitle")}
+            </h2>
+            <p className="text-[var(--navy)]/60 mt-3 leading-relaxed">{t("contact.formBody")}</p>
+          </div>
+          <ContactForm />
+        </div>
+      </section>
+
       {/* Branch locations */}
       <section className="max-w-7xl mx-auto px-6 py-20">
         <div className="text-center mb-12">
@@ -157,22 +173,6 @@ export default async function ContactPage() {
               </a>
             </div>
           ))}
-        </div>
-      </section>
-
-      {/* Contact Form */}
-      <section className="bg-[var(--secondary)] py-20">
-        <div className="max-w-3xl mx-auto px-6">
-          <div className="text-center mb-10">
-            <p className="font-heading text-xs uppercase tracking-widest text-[var(--aqua)] font-[700] mb-3">
-              {t("contact.formEyebrow")}
-            </p>
-            <h2 className="font-heading text-2xl md:text-3xl font-[800] text-[var(--navy)]">
-              {t("contact.formTitle")}
-            </h2>
-            <p className="text-[var(--navy)]/60 mt-3 leading-relaxed">{t("contact.formBody")}</p>
-          </div>
-          <ContactForm />
         </div>
       </section>
 
