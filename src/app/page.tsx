@@ -52,7 +52,7 @@ const stats = [
   { value: "20+", label: "Years in operation" },
   { value: "14,000+", label: "Pools built in Thailand" },
   { value: "11", label: "Water parameters tested" },
-  { value: "4", label: "Branches nationwide" },
+  { value: "11", label: "Branches nationwide" },
 ];
 
 const labChecks = [
@@ -122,11 +122,10 @@ export default function HomePage() {
       {/* Quiet location strip */}
       <section className="border-b border-black/[0.08]">
         <div className="max-w-7xl mx-auto px-6 py-5 flex flex-wrap items-center justify-between gap-4 font-mono text-[11px] tracking-[0.18em] uppercase text-black/55">
-          <span>Bangkok</span>
-          <span className="hidden sm:inline">Chiang Mai</span>
-          <span className="hidden sm:inline">Chiang Rai</span>
-          <span>Hua Hin</span>
-          <Link href="/contactus" className="text-[var(--navy)] hover:text-[var(--aqua)] transition-colors">
+          <span className="truncate">
+            Bangkok · Chiang Mai · Chiang Rai · Hua Hin · Kanchanaburi · Korat · Krabi · Nakhon Si · Phuket · Rayong · Samui
+          </span>
+          <Link href="/contactus" className="text-[var(--navy)] hover:text-[var(--aqua)] transition-colors shrink-0">
             Find a branch →
           </Link>
         </div>

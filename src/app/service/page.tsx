@@ -190,7 +190,7 @@ export default function ServicePage() {
                 Ready when you are
               </p>
               <h2 className="font-heading font-[700] text-3xl md:text-5xl tracking-[-0.02em] text-[var(--navy)] leading-[1.05]">
-                Bangkok, Chiang Mai, Chiang Rai, Hua Hin —{" "}
+                Eleven branches across Thailand —{" "}
                 <span className="text-[var(--aqua)]">we cover the country.</span>
               </h2>
             </div>

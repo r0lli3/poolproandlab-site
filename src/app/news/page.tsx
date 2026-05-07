@@ -50,7 +50,7 @@ export default function NewsPage() {
               <p className="text-[var(--navy)]/70 leading-relaxed mb-10 max-w-2xl">
                 We&apos;re refreshing this section with new posts. In the meantime, follow us on
                 social media or reach out — there&apos;s usually something interesting happening
-                across our four branches.
+                across our eleven branches.
               </p>
               <div className="flex items-center gap-6 flex-wrap">
                 <Link

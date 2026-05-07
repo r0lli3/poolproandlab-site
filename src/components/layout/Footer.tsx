@@ -3,22 +3,17 @@ import Image from "next/image";
 import { Phone, Mail, MapPin, MessageCircle, ArrowUpRight } from "lucide-react";
 
 const branches = [
-  {
-    name: "Bangkok (HQ)",
-    phone: "081-844-5564",
-  },
-  {
-    name: "Chiang Mai",
-    phone: "095-204-4332",
-  },
-  {
-    name: "Chiang Rai",
-    phone: "095-371-2689",
-  },
-  {
-    name: "Hua Hin",
-    phone: "095-424-4888",
-  },
+  { name: "Bangkok (HQ)", phone: "081-844-5564" },
+  { name: "Chiang Mai", phone: "095-204-4332" },
+  { name: "Chiang Rai", phone: "095-371-2689" },
+  { name: "Hua Hin", phone: "095-424-4888" },
+  { name: "Kanchanaburi", phone: "034-520-575" },
+  { name: "Korat", phone: "080-724-7700" },
+  { name: "Krabi", phone: "075-818-338" },
+  { name: "Nakhon Si", phone: "075-800-422" },
+  { name: "Phuket", phone: "076-238-999" },
+  { name: "Rayong", phone: "064-654-4995" },
+  { name: "Samui", phone: "077-427-356" },
 ];
 
 const shopLinks = [
@@ -32,7 +27,6 @@ const shopLinks = [
 const serviceLinks = [
   { label: "Water Testing Lab", href: "/lab" },
   { label: "Our Services", href: "/service" },
-  { label: "News & Activities", href: "/news" },
   { label: "Contact Us", href: "/contactus" },
 ];
 

@@ -40,7 +40,7 @@ const steps = [
   {
     n: "01",
     title: "Bring your water sample",
-    desc: "Drop a sample at any of our four branches. We test on the spot and walk you through the results before you leave.",
+    desc: "Drop a sample at any of our eleven branches. We test on the spot and walk you through the results before you leave.",
   },
   {
     n: "02",
@@ -229,7 +229,7 @@ export default function LabPage() {
             </div>
             <div className="lg:col-span-5">
               <p className="text-[var(--navy)]/70 leading-relaxed mb-8 max-w-md">
-                Visit any of our four branches across Thailand, or contact us to arrange a sample
+                Visit any of our eleven branches across Thailand, or contact us to arrange a sample
                 collection.
               </p>
               <div className="flex items-center gap-6">

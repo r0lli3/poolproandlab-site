@@ -11,7 +11,6 @@ const navLinks = [
   { label: "Shop", href: "/shop" },
   { label: "Water Lab", href: "/lab" },
   { label: "Services", href: "/service" },
-  { label: "News", href: "/news" },
   {
     label: "Franchise",
     href: "#",
