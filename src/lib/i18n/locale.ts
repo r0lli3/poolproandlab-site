@@ -6,7 +6,7 @@
 
 export const SUPPORTED_LOCALES = ['en', 'th'] as const
 export type Locale = (typeof SUPPORTED_LOCALES)[number]
-export const DEFAULT_LOCALE: Locale = 'en'
+export const DEFAULT_LOCALE: Locale = 'th'
 export const LOCALE_COOKIE_NAME = 'ppl-locale'
 export const LOCALE_COOKIE_MAX_AGE = 60 * 60 * 24 * 365 // 1 year
 
