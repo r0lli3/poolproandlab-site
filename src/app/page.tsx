@@ -50,16 +50,26 @@ export default async function HomePage() {
 
   return (
     <>
-      {/* Hero */}
-      <section className="border-b border-black/[0.08]">
-        <div className="max-w-7xl mx-auto px-6 pt-20 pb-16 md:pt-28 md:pb-24">
-          <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-black/50 mb-10">
+      {/* Hero — full-bleed image with text overlay */}
+      <section className="relative border-b border-black/[0.08] h-[80vh] min-h-[560px] md:min-h-[640px] overflow-hidden">
+        <Image
+          src="/assets/images/products-hero.png"
+          alt="Pool equipment and supplies"
+          fill
+          className="object-cover object-center"
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
+
+        <div className="relative h-full max-w-7xl mx-auto px-6 pt-20 pb-16 md:pt-28 md:pb-24 flex flex-col justify-between">
+          <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-white/80">
             {t("home.eyebrow")}
           </p>
 
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-end">
             <div className="lg:col-span-7">
-              <h1 className="font-heading font-[700] text-[clamp(2.5rem,6vw,5.25rem)] leading-[0.95] tracking-[-0.02em] text-[var(--navy)]">
+              <h1 className="font-heading font-[700] text-[clamp(2.5rem,6vw,5.25rem)] leading-[0.95] tracking-[-0.02em] text-white drop-shadow-sm">
                 {t("home.heroLine1")}
                 <br />
                 {t("home.heroLine2")}
@@ -69,36 +79,25 @@ export default async function HomePage() {
             </div>
 
             <div className="lg:col-span-5">
-              <p className="text-[var(--navy)]/70 text-base md:text-lg leading-relaxed max-w-md">
+              <p className="text-white/85 text-base md:text-lg leading-relaxed max-w-md">
                 {t("home.heroSub")}
               </p>
               <div className="flex items-center gap-6 mt-8">
                 <Link
                   href="/shop"
-                  className="inline-flex items-center gap-2 px-5 py-3 bg-[var(--navy)] text-white text-sm font-[600] hover:bg-black transition-colors"
+                  className="inline-flex items-center gap-2 px-5 py-3 bg-white text-[var(--navy)] text-sm font-[600] hover:bg-[var(--aqua)] hover:text-white transition-colors"
                 >
                   {t("home.ctaShop")}
                   <ArrowUpRight className="w-4 h-4" />
                 </Link>
                 <Link
                   href="/lab"
-                  className="inline-flex items-center gap-2 text-sm font-[600] text-[var(--navy)] underline underline-offset-[6px] decoration-[var(--aqua)] decoration-2 hover:decoration-[var(--navy)] transition-colors"
+                  className="inline-flex items-center gap-2 text-sm font-[600] text-white underline underline-offset-[6px] decoration-[var(--aqua)] decoration-2 hover:decoration-white transition-colors"
                 >
                   {t("home.ctaBook")}
                 </Link>
               </div>
             </div>
-          </div>
-
-          <div className="relative aspect-[16/8] mt-16 md:mt-24 overflow-hidden bg-[oklch(0.96_0.01_220)]">
-            <Image
-              src="/assets/images/products-hero.png"
-              alt="Pool equipment and supplies"
-              fill
-              className="object-cover object-center"
-              priority
-              sizes="(max-width: 1280px) 100vw, 1280px"
-            />
           </div>
         </div>
       </section>
