@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import { getServerT } from "@/lib/i18n/server";
 
 export const metadata: Metadata = {
   title: "Pool Water Testing Lab",
@@ -14,83 +15,72 @@ export const metadata: Metadata = {
   },
 };
 
-const parameters = [
-  "Free Chlorine",
-  "Total Chlorine",
-  "pH Level",
-  "Total Alkalinity",
-  "Calcium Hardness",
-  "Cyanuric Acid",
-  "Total Dissolved Solids",
-  "Iron",
-  "Copper",
-  "Salt Level",
-  "Water Temperature",
-];
+export default async function LabPage() {
+  const { t } = await getServerT();
 
-const risks = [
-  "Damaged hair and scalp",
-  "Skin problems and irritation",
-  "Tooth decay",
-  "Respiratory infections",
-  "Pink eye (conjunctivitis)",
-];
+  const parameters = [
+    t("labPage.parameters.freeChlorine"),
+    t("labPage.parameters.totalChlorine"),
+    t("labPage.parameters.ph"),
+    t("labPage.parameters.totalAlkalinity"),
+    t("labPage.parameters.calcium"),
+    t("labPage.parameters.cyanuric"),
+    t("labPage.parameters.tds"),
+    t("labPage.parameters.iron"),
+    t("labPage.parameters.copper"),
+    t("labPage.parameters.salt"),
+    t("labPage.parameters.temp"),
+  ];
 
-const steps = [
-  {
-    n: "01",
-    title: "Bring your water sample",
-    desc: "Drop a sample at any of our eleven branches. We test on the spot and walk you through the results before you leave.",
-  },
-  {
-    n: "02",
-    title: "Or have us collect it",
-    desc: "Our technicians can pick the sample up from your pool. Written results and recommendations come back within seven days.",
-  },
-  {
-    n: "03",
-    title: "Get a real prescription",
-    desc: "Computerized analysis turns into a precise treatment plan — exact products, exact doses — to bring water back into balance.",
-  },
-];
+  const risks = [
+    t("labPage.risks.hair"),
+    t("labPage.risks.skin"),
+    t("labPage.risks.tooth"),
+    t("labPage.risks.respiratory"),
+    t("labPage.risks.pinkEye"),
+  ];
 
-export default function LabPage() {
+  const steps = [
+    { n: "01", title: t("labPage.step1Title"), desc: t("labPage.step1Desc") },
+    { n: "02", title: t("labPage.step2Title"), desc: t("labPage.step2Desc") },
+    { n: "03", title: t("labPage.step3Title"), desc: t("labPage.step3Desc") },
+  ];
+
   return (
     <>
       {/* Hero */}
       <section className="border-b border-black/[0.08]">
         <div className="max-w-7xl mx-auto px-6 pt-20 pb-16 md:pt-28 md:pb-24">
           <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-black/50 mb-10">
-            The Lab — ASEAN&apos;s first computerized pool water analysis
+            {t("labPage.eyebrow")}
           </p>
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-end">
             <div className="lg:col-span-7">
               <h1 className="font-heading font-[700] text-[clamp(2.5rem,6vw,5.25rem)] leading-[0.95] tracking-[-0.02em] text-[var(--navy)]">
-                You can&apos;t see
+                {t("labPage.heroLine1")}
                 <br />
-                what&apos;s in your pool.
+                {t("labPage.heroLine2")}
                 <br />
-                <span className="text-[var(--aqua)]">We can.</span>
+                <span className="text-[var(--aqua)]">{t("labPage.heroLine3")}</span>
               </h1>
             </div>
             <div className="lg:col-span-5">
               <p className="text-[var(--navy)]/70 text-base md:text-lg leading-relaxed max-w-md">
-                A computerized lab measures eleven parameters of your pool&apos;s chemistry and
-                returns a real treatment plan — not a guess.
+                {t("labPage.heroSub")}
               </p>
               <div className="flex items-center gap-6 mt-8">
                 <Link
                   href="/contactus"
                   className="inline-flex items-center gap-2 px-5 py-3 bg-[var(--navy)] text-white text-sm font-[600] hover:bg-black transition-colors"
                 >
-                  Book a water test
+                  {t("labPage.ctaPrimary")}
                   <ArrowUpRight className="w-4 h-4" />
                 </Link>
                 <Link
                   href="#process"
                   className="text-sm font-[600] text-[var(--navy)] underline underline-offset-[6px] decoration-[var(--aqua)] decoration-2 hover:decoration-[var(--navy)] transition-colors"
                 >
-                  See how it works
+                  {t("labPage.ctaSecondary")}
                 </Link>
               </div>
             </div>
@@ -113,8 +103,7 @@ export default function LabPage() {
       <section className="border-b border-black/[0.08]">
         <div className="max-w-4xl mx-auto px-6 py-20 md:py-28">
           <p className="font-heading text-2xl md:text-4xl font-[500] text-[var(--navy)] leading-[1.2] tracking-[-0.01em]">
-            &ldquo;Because you never know what lies beneath the sparkling blue water in your
-            swimming pool.&rdquo;
+            {t("labPage.pullQuote")}
           </p>
         </div>
       </section>
@@ -125,16 +114,15 @@ export default function LabPage() {
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
             <div className="lg:col-span-5">
               <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-black/50 mb-4">
-                001 — Why it matters
+                {t("labPage.whyEyebrow")}
               </p>
               <h2 className="font-heading font-[700] text-3xl md:text-5xl tracking-[-0.02em] text-[var(--navy)] leading-[1.05]">
-                Bad water doesn&apos;t look bad. It just makes you sick.
+                {t("labPage.whyTitle")}
               </h2>
             </div>
             <div className="lg:col-span-7">
               <p className="text-[var(--navy)]/70 leading-relaxed mb-10 max-w-2xl">
-                Out-of-balance pool chemistry quietly causes a long list of problems for the
-                people who actually swim in it. Our lab catches these before they reach you.
+                {t("labPage.whyBody")}
               </p>
               <ul className="border-t border-black/[0.08]">
                 {risks.map((item, i) => (
@@ -159,10 +147,10 @@ export default function LabPage() {
         <div className="max-w-7xl mx-auto px-6 py-20 md:py-28">
           <div className="max-w-3xl mb-16">
             <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-black/50 mb-4">
-              002 — What we measure
+              {t("labPage.measureEyebrow")}
             </p>
             <h2 className="font-heading font-[700] text-3xl md:text-5xl tracking-[-0.02em] text-[var(--navy)] leading-[1.05]">
-              Eleven parameters. One report. Real recommendations.
+              {t("labPage.measureTitle")}
             </h2>
           </div>
 
@@ -189,10 +177,10 @@ export default function LabPage() {
         <div className="max-w-7xl mx-auto px-6 py-20 md:py-28">
           <div className="max-w-3xl mb-16">
             <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-black/50 mb-4">
-              003 — The process
+              {t("labPage.processEyebrow")}
             </p>
             <h2 className="font-heading font-[700] text-3xl md:text-5xl tracking-[-0.02em] text-[var(--navy)] leading-[1.05]">
-              Three ways to get your water tested.
+              {t("labPage.processTitle")}
             </h2>
           </div>
 
@@ -221,30 +209,29 @@ export default function LabPage() {
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-end">
             <div className="lg:col-span-7">
               <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-black/50 mb-4">
-                004 — Ready when you are
+                {t("labPage.closingEyebrow")}
               </p>
               <h2 className="font-heading font-[700] text-3xl md:text-5xl tracking-[-0.02em] text-[var(--navy)] leading-[1.05]">
-                Drop a sample today. <span className="text-[var(--aqua)]">Swim cleaner tomorrow.</span>
+                {t("labPage.closingTitle1")} <span className="text-[var(--aqua)]">{t("labPage.closingTitle2")}</span>
               </h2>
             </div>
             <div className="lg:col-span-5">
               <p className="text-[var(--navy)]/70 leading-relaxed mb-8 max-w-md">
-                Visit any of our eleven branches across Thailand, or contact us to arrange a sample
-                collection.
+                {t("labPage.closingBody")}
               </p>
               <div className="flex items-center gap-6">
                 <Link
                   href="/contactus"
                   className="inline-flex items-center gap-2 px-5 py-3 bg-[var(--navy)] text-white text-sm font-[600] hover:bg-black transition-colors"
                 >
-                  Book a water test
+                  {t("labPage.closingCtaPrimary")}
                   <ArrowUpRight className="w-4 h-4" />
                 </Link>
                 <Link
                   href="/service"
                   className="text-sm font-[600] text-[var(--navy)] underline underline-offset-[6px] decoration-[var(--aqua)] decoration-2 hover:decoration-[var(--navy)] transition-colors"
                 >
-                  See our services
+                  {t("labPage.closingCtaSecondary")}
                 </Link>
               </div>
             </div>

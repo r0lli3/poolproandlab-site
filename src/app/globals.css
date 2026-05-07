@@ -96,14 +96,28 @@
   body {
     @apply bg-background text-foreground font-sans antialiased;
   }
+  html[lang="th"] body {
+    font-family: var(--font-thai), var(--font-roboto), sans-serif;
+  }
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-raleway), var(--font-sans), sans-serif;
+  }
+  html[lang="th"] h1,
+  html[lang="th"] h2,
+  html[lang="th"] h3,
+  html[lang="th"] h4,
+  html[lang="th"] h5,
+  html[lang="th"] h6 {
+    font-family: var(--font-thai), var(--font-raleway), sans-serif;
   }
 }
 
 @layer utilities {
   .font-heading {
     font-family: var(--font-raleway), var(--font-sans), sans-serif;
+  }
+  html[lang="th"] .font-heading {
+    font-family: var(--font-thai), var(--font-raleway), sans-serif;
   }
   .text-aqua {
     color: var(--aqua);

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import { getServerT } from "@/lib/i18n/server";
 
 export const metadata: Metadata = {
   title: "How to Apply",
@@ -8,66 +9,37 @@ export const metadata: Metadata = {
     "Step-by-step guide to applying for a Pool Pro&Lab franchise. 6 steps: application form, initial meeting, financial verification, franchise agreement, training, and branch opening.",
 };
 
-const steps = [
-  {
-    n: "01",
-    title: "Send the application form",
-    desc: "Complete the franchise application form and send it to the Franchise Manager.",
-    detail: "business-contact@poolproandlab.com",
-  },
-  {
-    n: "02",
-    title: "Initial meeting",
-    desc: "We review preliminary qualifications and schedule an interview with the franchise team.",
-    detail: null,
-  },
-  {
-    n: "03",
-    title: "Financial verification",
-    desc: "If the preliminary qualifications meet our standard, we share the full business details.",
-    detail: null,
-  },
-  {
-    n: "04",
-    title: "Franchise agreement",
-    desc: "Both sides sign the franchise agreement.",
-    detail: null,
-  },
-  {
-    n: "05",
-    title: "Training program",
-    desc: "A comprehensive training course for you and your staff — products, services, operations, and business management.",
-    detail: null,
-  },
-  {
-    n: "06",
-    title: "Branch setup and opening",
-    desc: "Office decoration to spec, equipment installation, and a Pool Pro&Lab staffer on-site to coach the start of operations.",
-    detail: null,
-  },
-];
+export default async function HowToApplyPage() {
+  const { t } = await getServerT();
 
-export default function HowToApplyPage() {
+  const steps = [
+    { n: "01", title: t("howToApplyPage.step1Title"), desc: t("howToApplyPage.step1Desc"), detail: t("howToApplyPage.step1Detail") },
+    { n: "02", title: t("howToApplyPage.step2Title"), desc: t("howToApplyPage.step2Desc"), detail: null as string | null },
+    { n: "03", title: t("howToApplyPage.step3Title"), desc: t("howToApplyPage.step3Desc"), detail: null as string | null },
+    { n: "04", title: t("howToApplyPage.step4Title"), desc: t("howToApplyPage.step4Desc"), detail: null as string | null },
+    { n: "05", title: t("howToApplyPage.step5Title"), desc: t("howToApplyPage.step5Desc"), detail: null as string | null },
+    { n: "06", title: t("howToApplyPage.step6Title"), desc: t("howToApplyPage.step6Desc"), detail: null as string | null },
+  ];
+
   return (
     <>
       {/* Hero */}
       <section className="border-b border-black/[0.08]">
         <div className="max-w-7xl mx-auto px-6 pt-20 pb-16 md:pt-28 md:pb-24">
           <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-black/50 mb-10">
-            How to apply — Six steps to opening
+            {t("howToApplyPage.eyebrow")}
           </p>
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-end">
             <div className="lg:col-span-7">
               <h1 className="font-heading font-[700] text-[clamp(2.5rem,6vw,5.25rem)] leading-[0.95] tracking-[-0.02em] text-[var(--navy)]">
-                Six steps from
+                {t("howToApplyPage.heroLine1")}
                 <br />
-                form to <span className="text-[var(--aqua)]">opening day.</span>
+                {t("howToApplyPage.heroLine2")} <span className="text-[var(--aqua)]">{t("howToApplyPage.heroLine3")}</span>
               </h1>
             </div>
             <div className="lg:col-span-5">
               <p className="text-[var(--navy)]/70 text-base md:text-lg leading-relaxed max-w-md">
-                A clear, predictable process. The whole thing takes around four months from signed
-                agreement to open doors.
+                {t("howToApplyPage.heroSub")}
               </p>
             </div>
           </div>
@@ -113,22 +85,22 @@ export default function HowToApplyPage() {
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-end">
             <div className="lg:col-span-7">
               <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-black/50 mb-4">
-                Step zero
+                {t("howToApplyPage.closingEyebrow")}
               </p>
               <h2 className="font-heading font-[700] text-3xl md:text-5xl tracking-[-0.02em] text-[var(--navy)] leading-[1.05]">
-                Send the form. <span className="text-[var(--aqua)]">We&apos;ll take it from there.</span>
+                {t("howToApplyPage.closingTitle1")} <span className="text-[var(--aqua)]">{t("howToApplyPage.closingTitle2")}</span>
               </h2>
             </div>
             <div className="lg:col-span-5">
               <p className="text-[var(--navy)]/70 leading-relaxed mb-8 max-w-md">
-                Get the application form and start the conversation with our franchise team.
+                {t("howToApplyPage.closingBody")}
               </p>
               <div className="flex items-center gap-6 flex-wrap">
                 <Link
                   href="/business-contact"
                   className="inline-flex items-center gap-2 px-5 py-3 bg-[var(--navy)] text-white text-sm font-[600] hover:bg-black transition-colors"
                 >
-                  Contact franchise team
+                  {t("howToApplyPage.closingCtaPrimary")}
                   <ArrowUpRight className="w-4 h-4" />
                 </Link>
                 <a

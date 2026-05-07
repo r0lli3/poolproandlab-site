@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
-import { Raleway, Roboto } from "next/font/google";
+import { Raleway, Roboto, Noto_Sans_Thai } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { I18nProvider } from "@/lib/i18n/client";
+import { getServerLocale } from "@/lib/i18n/server";
 
 const raleway = Raleway({
   variable: "--font-raleway",
@@ -15,6 +17,13 @@ const roboto = Roboto({
   variable: "--font-roboto",
   subsets: ["latin"],
   weight: ["300", "400", "500", "700"],
+  display: "swap",
+});
+
+const notoSansThai = Noto_Sans_Thai({
+  variable: "--font-thai",
+  subsets: ["thai"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -33,20 +42,23 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getServerLocale();
   return (
     <html
-      lang="en"
-      className={`${raleway.variable} ${roboto.variable} h-full`}
+      lang={locale}
+      className={`${raleway.variable} ${roboto.variable} ${notoSansThai.variable} h-full`}
     >
       <body className="min-h-full flex flex-col antialiased">
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <I18nProvider locale={locale}>
+          <Header locale={locale} />
+          <main className="flex-1">{children}</main>
+          <Footer locale={locale} />
+        </I18nProvider>
       </body>
     </html>
   );

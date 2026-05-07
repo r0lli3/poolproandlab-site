@@ -5,27 +5,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, ChevronDown, Phone, Mail } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useT } from "@/lib/i18n/client";
+import type { Locale } from "@/lib/i18n/locale";
+import { LocaleToggle } from "./LocaleToggle";
 
-const navLinks = [
-  { label: "Home", href: "/" },
-  { label: "Shop", href: "/shop" },
-  { label: "Water Lab", href: "/lab" },
-  { label: "Services", href: "/service" },
-  {
-    label: "Franchise",
-    href: "#",
-    children: [
-      { label: "Franchise Concept", href: "/franchise-concept" },
-      { label: "Benefits", href: "/benefits" },
-      { label: "How to Apply", href: "/howtoapply" },
-      { label: "FAQs", href: "/faqs" },
-      { label: "Business Contact", href: "/business-contact" },
-    ],
-  },
-  { label: "Contact", href: "/contactus" },
-];
-
-export function Header() {
+export function Header({ locale }: { locale: Locale }) {
+  const { t } = useT();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [franchiseOpen, setFranchiseOpen] = useState(false);
@@ -36,12 +21,31 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const navLinks = [
+    { label: t("nav.home"), href: "/" },
+    { label: t("nav.shop"), href: "/shop" },
+    { label: t("nav.lab"), href: "/lab" },
+    { label: t("nav.service"), href: "/service" },
+    {
+      label: t("nav.franchise"),
+      href: "#",
+      children: [
+        { label: t("nav.franchiseConcept"), href: "/franchise-concept" },
+        { label: t("nav.benefits"), href: "/benefits" },
+        { label: t("nav.howToApply"), href: "/howtoapply" },
+        { label: t("nav.faqs"), href: "/faqs" },
+        { label: t("nav.businessContact"), href: "/business-contact" },
+      ],
+    },
+    { label: t("nav.contact"), href: "/contactus" },
+  ];
+
   return (
     <>
       {/* Quiet utility strip */}
       <div className="hidden md:block border-b border-black/[0.08]">
         <div className="max-w-7xl mx-auto px-6 py-2 flex items-center justify-between font-mono text-[11px] tracking-[0.14em] uppercase text-black/55">
-          <span>Pool Equipment · Water Lab · Service</span>
+          <span>{t("topBar.blurb")}</span>
           <div className="flex items-center gap-6">
             <a
               href="tel:0818445564"
@@ -57,6 +61,7 @@ export function Header() {
               <Mail className="w-3 h-3" />
               info@poolproandlab.com
             </a>
+            <LocaleToggle current={locale} variant="light" />
           </div>
         </div>
       </div>
@@ -131,7 +136,7 @@ export function Header() {
               href="/lab"
               className="ml-3 px-5 py-2 bg-[var(--navy)] text-white text-sm font-[600] hover:bg-black transition-colors"
             >
-              Book Lab Test
+              {t("common.bookLabTest")}
             </Link>
           </nav>
 
@@ -155,6 +160,9 @@ export function Header() {
               <a href="mailto:info@poolproandlab.com" className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-[var(--aqua)]" /> info@poolproandlab.com
               </a>
+              <div className="pt-2">
+                <LocaleToggle current={locale} variant="light" />
+              </div>
             </div>
             {navLinks.map((link) =>
               link.children ? (
@@ -203,7 +211,7 @@ export function Header() {
                 className="block text-center px-5 py-3 bg-[var(--navy)] text-white text-sm font-[600] hover:bg-black transition-colors"
                 onClick={() => setMobileOpen(false)}
               >
-                Book Lab Test
+                {t("common.bookLabTest")}
               </Link>
             </div>
           </div>

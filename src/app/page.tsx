@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import { getServerT } from "@/lib/i18n/server";
 
 export const metadata: Metadata = {
   title: "Pool Pro&Lab | Thailand's Premier Pool Equipment & Water Testing Lab",
@@ -14,93 +15,76 @@ export const metadata: Metadata = {
   },
 };
 
-const categories = [
-  { name: "Cleaning Robots", img: "/assets/images/category-cleaning-robot.jpg", href: "/shop" },
-  { name: "Cleaning Equipment", img: "/assets/images/category-cleaning-equipment.jpg", href: "/shop" },
-  { name: "Pool Chemicals", img: "/assets/images/category-chemicals.png", href: "/shop" },
-  { name: "Premium Chemicals", img: "/assets/images/category-chemicals-premium.png", href: "/shop" },
-  { name: "Pool Pumps", img: "/assets/images/category-pump.png", href: "/shop" },
-  { name: "Salt Chlorinators", img: "/assets/images/category-salt-chlorinator.png", href: "/shop" },
-  { name: "Mineral Swim", img: "/assets/images/category-mineral-swim.png", href: "/shop" },
-];
+export default async function HomePage() {
+  const { t } = await getServerT();
 
-const services = [
-  {
-    n: "01",
-    title: "Water Testing Lab",
-    body:
-      "ASEAN's first computerized water analysis lab. We measure 11 parameters and return expert recommendations within seven days.",
-    href: "/lab",
-  },
-  {
-    n: "02",
-    title: "Water Treatment",
-    body:
-      "Premium Australian sanitizers, pH buffers, clarifiers, and protection — sized to the way your pool actually behaves.",
-    href: "/service",
-  },
-  {
-    n: "03",
-    title: "Care & Cleaning",
-    body:
-      "Routine maintenance from trained technicians. Vacuum, balance, equipment checks, repair, and problem water — handled.",
-    href: "/service",
-  },
-];
+  const categories = [
+    { name: t("home.categoryShort.robot"), img: "/assets/images/category-cleaning-robot.jpg", href: "/shop" },
+    { name: t("home.categoryShort.equipment"), img: "/assets/images/category-cleaning-equipment.jpg", href: "/shop" },
+    { name: t("home.categoryShort.chemicals"), img: "/assets/images/category-chemicals.png", href: "/shop" },
+    { name: t("home.categoryShort.premium"), img: "/assets/images/category-chemicals-premium.png", href: "/shop" },
+    { name: t("home.categoryShort.pumps"), img: "/assets/images/category-pump.png", href: "/shop" },
+    { name: t("home.categoryShort.salt"), img: "/assets/images/category-salt-chlorinator.png", href: "/shop" },
+    { name: t("home.categoryShort.mineral"), img: "/assets/images/category-mineral-swim.png", href: "/shop" },
+  ];
 
-const stats = [
-  { value: "20+", label: "Years in operation" },
-  { value: "14,000+", label: "Pools built in Thailand" },
-  { value: "11", label: "Water parameters tested" },
-  { value: "11", label: "Branches nationwide" },
-];
+  const services = [
+    { n: "01", title: t("home.svc01Title"), body: t("home.svc01Body"), href: "/lab" },
+    { n: "02", title: t("home.svc02Title"), body: t("home.svc02Body"), href: "/service" },
+    { n: "03", title: t("home.svc03Title"), body: t("home.svc03Body"), href: "/service" },
+  ];
 
-const labChecks = [
-  "Eleven water parameters, measured precisely",
-  "Computerized analysis, not eyeballed test strips",
-  "First certified lab of its kind in ASEAN",
-  "Written report and recommendations within seven days",
-];
+  const stats = [
+    { value: t("home.stat1Value"), label: t("home.stat1Label") },
+    { value: t("home.stat2Value"), label: t("home.stat2Label") },
+    { value: t("home.stat3Value"), label: t("home.stat3Label") },
+    { value: t("home.stat4Value"), label: t("home.stat4Label") },
+  ];
 
-export default function HomePage() {
+  const labChecks = [
+    t("home.labCheck1"),
+    t("home.labCheck2"),
+    t("home.labCheck3"),
+    t("home.labCheck4"),
+  ];
+
   return (
     <>
       {/* Hero */}
       <section className="border-b border-black/[0.08]">
         <div className="max-w-7xl mx-auto px-6 pt-20 pb-16 md:pt-28 md:pb-24">
           <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-black/50 mb-10">
-            Pool equipment · Water lab · Service — Since 2004
+            {t("home.eyebrow")}
           </p>
 
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-end">
             <div className="lg:col-span-7">
               <h1 className="font-heading font-[700] text-[clamp(2.5rem,6vw,5.25rem)] leading-[0.95] tracking-[-0.02em] text-[var(--navy)]">
-                Clean water.
+                {t("home.heroLine1")}
                 <br />
-                Honest equipment.
+                {t("home.heroLine2")}
                 <br />
-                <span className="text-[var(--aqua)]">Twenty years on it.</span>
+                <span className="text-[var(--aqua)]">{t("home.heroLine3")}</span>
               </h1>
             </div>
 
             <div className="lg:col-span-5">
               <p className="text-[var(--navy)]/70 text-base md:text-lg leading-relaxed max-w-md">
-                Thailand&apos;s leading pool equipment supplier, certified water testing
-                laboratory, and full-service maintenance team — under one roof.
+                {t("home.heroSub")}
               </p>
               <div className="flex items-center gap-6 mt-8">
                 <Link
                   href="/shop"
                   className="inline-flex items-center gap-2 px-5 py-3 bg-[var(--navy)] text-white text-sm font-[600] hover:bg-black transition-colors"
                 >
-                  Shop equipment
+                  {t("home.ctaShop")}
                   <ArrowUpRight className="w-4 h-4" />
                 </Link>
                 <Link
                   href="/lab"
                   className="inline-flex items-center gap-2 text-sm font-[600] text-[var(--navy)] underline underline-offset-[6px] decoration-[var(--aqua)] decoration-2 hover:decoration-[var(--navy)] transition-colors"
                 >
-                  Book a lab test
+                  {t("home.ctaBook")}
                 </Link>
               </div>
             </div>
@@ -123,10 +107,10 @@ export default function HomePage() {
       <section className="border-b border-black/[0.08]">
         <div className="max-w-7xl mx-auto px-6 py-5 flex flex-wrap items-center justify-between gap-4 font-mono text-[11px] tracking-[0.18em] uppercase text-black/55">
           <span className="truncate">
-            Bangkok · Chiang Mai · Chiang Rai · Hua Hin · Kanchanaburi · Korat · Krabi · Nakhon Si · Phuket · Rayong · Samui
+            {t("home.locationStrip")}
           </span>
           <Link href="/contactus" className="text-[var(--navy)] hover:text-[var(--aqua)] transition-colors shrink-0">
-            Find a branch →
+            {t("home.findBranch")}
           </Link>
         </div>
       </section>
@@ -137,17 +121,17 @@ export default function HomePage() {
           <div className="flex items-end justify-between mb-12 md:mb-16 gap-6">
             <div>
               <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-black/50 mb-4">
-                001 — The shop
+                {t("home.categoriesEyebrow")}
               </p>
               <h2 className="font-heading font-[700] text-3xl md:text-5xl tracking-[-0.02em] text-[var(--navy)] max-w-2xl leading-[1.05]">
-                Equipment for every part of pool ownership.
+                {t("home.categoriesTitle")}
               </h2>
             </div>
             <Link
               href="/shop"
               className="hidden md:inline-flex items-center gap-1.5 text-sm font-[600] text-[var(--navy)] hover:text-[var(--aqua)] transition-colors shrink-0"
             >
-              View all <ArrowUpRight className="w-4 h-4" />
+              {t("home.viewAll")} <ArrowUpRight className="w-4 h-4" />
             </Link>
           </div>
 
@@ -180,13 +164,11 @@ export default function HomePage() {
               className="group relative aspect-[4/5] border-r border-b border-black/[0.08] p-6 flex flex-col justify-between bg-[var(--navy)] text-white hover:bg-black transition-colors"
             >
               <span className="font-mono text-[11px] tracking-[0.18em] uppercase text-white/60">
-                Catalog
+                {t("home.catalogLabel")}
               </span>
               <div className="flex items-end justify-between">
-                <span className="font-heading font-[600] text-2xl leading-tight">
-                  See the full
-                  <br />
-                  range →
+                <span className="font-heading font-[600] text-2xl leading-tight whitespace-pre-line">
+                  {t("home.catalogTile")}
                 </span>
               </div>
             </Link>
@@ -209,14 +191,13 @@ export default function HomePage() {
             </div>
             <div className="lg:col-span-5 lg:pt-8">
               <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-black/50 mb-4">
-                002 — The lab
+                {t("home.labEyebrow")}
               </p>
               <h2 className="font-heading font-[700] text-3xl md:text-5xl tracking-[-0.02em] text-[var(--navy)] leading-[1.05] mb-6">
-                Is your water actually safe to swim in?
+                {t("home.labTitle")}
               </h2>
               <p className="text-[var(--navy)]/70 leading-relaxed mb-10">
-                You can&apos;t see what&apos;s in your pool — and bad water causes damaged hair,
-                skin problems, tooth decay, and infections. Our lab gives you a real answer.
+                {t("home.labBody")}
               </p>
               <ul className="border-t border-black/[0.08]">
                 {labChecks.map((item, i) => (
@@ -235,7 +216,7 @@ export default function HomePage() {
                 href="/lab"
                 className="inline-flex items-center gap-2 mt-10 px-5 py-3 bg-[var(--aqua)] text-white text-sm font-[600] hover:bg-[var(--navy)] transition-colors"
               >
-                Book a water test
+                {t("home.labCta")}
                 <ArrowUpRight className="w-4 h-4" />
               </Link>
             </div>
@@ -248,10 +229,10 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-6 py-20 md:py-28">
           <div className="max-w-3xl mb-16">
             <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-black/50 mb-4">
-              003 — What we do
+              {t("home.servicesEyebrow")}
             </p>
             <h2 className="font-heading font-[700] text-3xl md:text-5xl tracking-[-0.02em] text-[var(--navy)] leading-[1.05]">
-              Three services. One team that owns the outcome.
+              {t("home.servicesTitle")}
             </h2>
           </div>
 
@@ -272,7 +253,7 @@ export default function HomePage() {
                   {svc.body}
                 </p>
                 <span className="inline-flex items-center gap-1.5 text-sm font-[600] text-[var(--navy)] group-hover:text-[var(--aqua)] transition-colors">
-                  Learn more <ArrowUpRight className="w-4 h-4" />
+                  {t("home.learnMore")} <ArrowUpRight className="w-4 h-4" />
                 </span>
               </Link>
             ))}
@@ -309,31 +290,29 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-end">
             <div className="lg:col-span-7">
               <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-black/50 mb-4">
-                004 — Build with us
+                {t("home.franchiseEyebrow")}
               </p>
               <h2 className="font-heading font-[700] text-3xl md:text-5xl tracking-[-0.02em] text-[var(--navy)] leading-[1.05]">
-                Asia&apos;s first pool service franchise — and it&apos;s still the only one
-                worth running.
+                {t("home.franchiseTitle")}
               </h2>
             </div>
             <div className="lg:col-span-5">
               <p className="text-[var(--navy)]/70 leading-relaxed mb-8 max-w-md">
-                Thailand has the highest rate of pool ownership in Asia and the industry keeps
-                growing. Join the network and own a profitable, defensible service business.
+                {t("home.franchiseBody")}
               </p>
               <div className="flex items-center gap-6">
                 <Link
                   href="/franchise-concept"
                   className="inline-flex items-center gap-2 px-5 py-3 bg-[var(--navy)] text-white text-sm font-[600] hover:bg-black transition-colors"
                 >
-                  Franchise concept
+                  {t("home.franchiseCta1")}
                   <ArrowUpRight className="w-4 h-4" />
                 </Link>
                 <Link
                   href="/howtoapply"
                   className="text-sm font-[600] text-[var(--navy)] underline underline-offset-[6px] decoration-[var(--aqua)] decoration-2 hover:decoration-[var(--navy)] transition-colors"
                 >
-                  How to apply
+                  {t("home.franchiseCta2")}
                 </Link>
               </div>
             </div>

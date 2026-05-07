@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import { getServerT } from "@/lib/i18n/server";
 
 export const metadata: Metadata = {
   title: "Franchise Concept",
@@ -9,71 +10,55 @@ export const metadata: Metadata = {
     "Join ASEAN's first pool service franchise. Pool Pro&Lab — 1st pool service franchise in Asia. Thailand has the highest pool ownership rate in Asia. Complete support structure.",
 };
 
-const highlights = [
-  {
-    n: "01",
-    title: "Highest growth market",
-    desc: "Thailand has the highest rate of pool ownership in Asia and the industry is still expanding.",
-  },
-  {
-    n: "02",
-    title: "Complete support structure",
-    desc: "Showroom design template, operations and marketing support, brand and trademark name.",
-  },
-  {
-    n: "03",
-    title: "Proven business model",
-    desc: "J.D. Pools — 20+ years, 14,000+ pools built, 20 showrooms across Thailand.",
-  },
-  {
-    n: "04",
-    title: "Retail + lab in one",
-    desc: "A full pool retail and wholesale store combined with a water testing laboratory.",
-  },
-];
+export default async function FranchisePage() {
+  const { t } = await getServerT();
 
-const stats = [
-  { value: "20+", label: "Countries served" },
-  { value: "14,000+", label: "Pools built" },
-  { value: "20", label: "Showrooms in Thailand" },
-];
+  const highlights = [
+    { n: "01", title: t("franchisePage.h1Title"), desc: t("franchisePage.h1Desc") },
+    { n: "02", title: t("franchisePage.h2Title"), desc: t("franchisePage.h2Desc") },
+    { n: "03", title: t("franchisePage.h3Title"), desc: t("franchisePage.h3Desc") },
+    { n: "04", title: t("franchisePage.h4Title"), desc: t("franchisePage.h4Desc") },
+  ];
 
-export default function FranchisePage() {
+  const stats = [
+    { value: t("franchisePage.stat1Value"), label: t("franchisePage.stat1Label") },
+    { value: t("franchisePage.stat2Value"), label: t("franchisePage.stat2Label") },
+    { value: t("franchisePage.stat3Value"), label: t("franchisePage.stat3Label") },
+  ];
+
   return (
     <>
       {/* Hero */}
       <section className="border-b border-black/[0.08]">
         <div className="max-w-7xl mx-auto px-6 pt-20 pb-16 md:pt-28 md:pb-24">
           <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-black/50 mb-10">
-            Franchise — Asia&apos;s first pool service franchise
+            {t("franchisePage.eyebrow")}
           </p>
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-end">
             <div className="lg:col-span-7">
               <h1 className="font-heading font-[700] text-[clamp(2.5rem,6vw,5.25rem)] leading-[0.95] tracking-[-0.02em] text-[var(--navy)]">
-                A real business
+                {t("franchisePage.heroLine1")}
                 <br />
-                in <span className="text-[var(--aqua)]">a real market.</span>
+                {t("franchisePage.heroLine2")} <span className="text-[var(--aqua)]">{t("franchisePage.heroLine3")}</span>
               </h1>
             </div>
             <div className="lg:col-span-5">
               <p className="text-[var(--navy)]/70 text-base md:text-lg leading-relaxed max-w-md">
-                Pool ownership in Thailand is the highest in Asia and growing. The Pool Pro&amp;Lab
-                franchise combines retail, service, and the only computerized water lab of its
-                kind.
+                {t("franchisePage.heroSub")}
               </p>
               <div className="flex items-center gap-6 mt-8">
                 <Link
                   href="/howtoapply"
                   className="inline-flex items-center gap-2 px-5 py-3 bg-[var(--navy)] text-white text-sm font-[600] hover:bg-black transition-colors"
                 >
-                  How to apply
+                  {t("franchisePage.ctaPrimary")}
                   <ArrowUpRight className="w-4 h-4" />
                 </Link>
                 <Link
                   href="/benefits"
                   className="text-sm font-[600] text-[var(--navy)] underline underline-offset-[6px] decoration-[var(--aqua)] decoration-2 hover:decoration-[var(--navy)] transition-colors"
                 >
-                  See the benefits
+                  {t("franchisePage.ctaSecondary")}
                 </Link>
               </div>
             </div>
@@ -97,10 +82,10 @@ export default function FranchisePage() {
         <div className="max-w-7xl mx-auto px-6 py-20 md:py-28">
           <div className="max-w-3xl mb-12 md:mb-16">
             <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-black/50 mb-4">
-              001 — Why this works
+              {t("franchisePage.highlightsEyebrow")}
             </p>
             <h2 className="font-heading font-[700] text-3xl md:text-5xl tracking-[-0.02em] text-[var(--navy)] leading-[1.05]">
-              Four reasons it&apos;s the only pool franchise worth running.
+              {t("franchisePage.highlightsTitle")}
             </h2>
           </div>
 
@@ -129,28 +114,17 @@ export default function FranchisePage() {
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
             <div className="lg:col-span-5">
               <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-black/50 mb-4">
-                002 — Company profile
+                {t("franchisePage.profileEyebrow")}
               </p>
               <h2 className="font-heading font-[700] text-3xl md:text-5xl tracking-[-0.02em] text-[var(--navy)] leading-[1.05]">
-                Twenty years of pool expertise behind every outlet.
+                {t("franchisePage.profileTitle")}
               </h2>
             </div>
             <div className="lg:col-span-7">
               <div className="space-y-6 text-[var(--navy)]/70 leading-relaxed">
-                <p>
-                  J.D. Pools has been in the swimming pool business for over twenty years, building
-                  more than fourteen thousand pools in Thailand. We were the first Thai company to
-                  export pools, and now ship a wide range of products to more than twenty
-                  countries.
-                </p>
-                <p>
-                  Twenty showrooms around the country provide construction, installation, and
-                  maintenance services across every customer segment.
-                </p>
-                <p>
-                  Our laboratory is equipped with high-technology water-testing devices and Smart
-                  Scan kits — the first computerized pool water lab in ASEAN.
-                </p>
+                <p>{t("franchisePage.profileP1")}</p>
+                <p>{t("franchisePage.profileP2")}</p>
+                <p>{t("franchisePage.profileP3")}</p>
               </div>
             </div>
           </div>
@@ -193,19 +167,16 @@ export default function FranchisePage() {
             </div>
             <div className="lg:col-span-5 lg:pt-8">
               <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-black/50 mb-4">
-                003 — Retail + lab
+                {t("franchisePage.retailEyebrow")}
               </p>
               <h2 className="font-heading font-[700] text-3xl md:text-5xl tracking-[-0.02em] text-[var(--navy)] leading-[1.05] mb-6">
-                Equipment store and water testing lab — same building.
+                {t("franchisePage.retailTitle")}
               </h2>
               <p className="text-[var(--navy)]/70 leading-relaxed mb-6">
-                More pools means more demand for accessories and maintenance. Pool Pro&amp;Lab
-                combines a full retail and wholesale store with a state-of-the-art water analysis
-                laboratory.
+                {t("franchisePage.retailP1")}
               </p>
               <p className="text-[var(--navy)]/70 leading-relaxed">
-                Treatment recommendations are based on premium Australian imported pool care
-                products — the most advanced available.
+                {t("franchisePage.retailP2")}
               </p>
             </div>
           </div>
@@ -218,10 +189,10 @@ export default function FranchisePage() {
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-end">
             <div className="lg:col-span-7">
               <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-black/50 mb-4">
-                Join us
+                {t("franchisePage.joinEyebrow")}
               </p>
               <h2 className="font-heading font-[700] text-3xl md:text-5xl tracking-[-0.02em] text-[var(--navy)] leading-[1.05]">
-                Ready to join the <span className="text-[var(--aqua)]">Pool Pro&amp;Lab family?</span>
+                {t("franchisePage.joinTitle1")} <span className="text-[var(--aqua)]">{t("franchisePage.joinTitle2")}</span>
               </h2>
             </div>
             <div className="lg:col-span-5 flex items-center gap-6 flex-wrap">
@@ -229,14 +200,14 @@ export default function FranchisePage() {
                 href="/howtoapply"
                 className="inline-flex items-center gap-2 px-5 py-3 bg-[var(--navy)] text-white text-sm font-[600] hover:bg-black transition-colors"
               >
-                How to apply
+                {t("franchisePage.joinCtaPrimary")}
                 <ArrowUpRight className="w-4 h-4" />
               </Link>
               <Link
                 href="/benefits"
                 className="text-sm font-[600] text-[var(--navy)] underline underline-offset-[6px] decoration-[var(--aqua)] decoration-2 hover:decoration-[var(--navy)] transition-colors"
               >
-                View benefits
+                {t("franchisePage.joinCtaSecondary")}
               </Link>
             </div>
           </div>

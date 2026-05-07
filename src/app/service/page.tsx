@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import { getServerT } from "@/lib/i18n/server";
 
 export const metadata: Metadata = {
   title: "Our Services",
@@ -9,103 +10,88 @@ export const metadata: Metadata = {
     "Computerized pool water testing, advanced water treatment with Australian products, pool care & cleaning, equipment repair, and water problem elimination.",
 };
 
-const services = [
-  {
-    n: "01",
-    title: "Computerized Pool Water Lab",
-    description:
-      "Our laboratory specialists analyze eleven variables of your pool's chemical balance and tell you exactly whether the water is in ideal condition to swim in. You leave with a precise plan — not a guess.",
-    img: "/assets/images/service-water-lab.jpg",
-    features: [],
-  },
-  {
-    n: "02",
-    title: "Advanced Water Treatment",
-    description:
-      "Premium Australian products, applied by people who have done this for two decades.",
-    img: "/assets/images/service-water-treatment.jpg",
-    features: [
-      "Sanitizer & balancer",
-      "Calcium & pH buffer",
-      "Crystal-clear clarifier and pool solutions",
-      "Long-term pool protection",
-    ],
-  },
-  {
-    n: "03",
-    title: "Pool Care & Cleaning",
-    description:
-      "Routine maintenance tailored to the way your pool actually behaves — full vacuum, water balancing, equipment checks. Your pool stays in tip-top condition.",
-    img: "/assets/images/service-pool-care.jpg",
-    features: [],
-  },
-  {
-    n: "04",
-    title: "Maintenance, Equipment & Repair",
-    description:
-      "Year-round pool servicing delivered by highly-trained technicians. Casual or contracted.",
-    img: "/assets/images/service-maintenance.jpg",
-    features: [
-      "Filter repair and media replacement",
-      "Salt chlorinator repair",
-      "Robot parts replacement",
-      "Pool pumps repair",
-      "Underwater light repair",
-      "General equipment repair",
-    ],
-  },
-  {
-    n: "05",
-    title: "Water Problem Eliminator",
-    description: "Diagnose and solve any pool water problem — quickly, effectively.",
-    img: "/assets/images/lab-feature.jpg",
-    features: [
-      "Clear algae water",
-      "Clear cloudy water",
-      "Pool flocking",
-      "Stain removal",
-      "Eliminate over-chlorine levels",
-      "Water discolorations",
-      "Filter cleaning",
-    ],
-  },
-];
+export default async function ServicePage() {
+  const { t } = await getServerT();
 
-export default function ServicePage() {
+  const services = [
+    { n: "01", title: t("servicePage.svc01Title"), description: t("servicePage.svc01Desc"), img: "/assets/images/service-water-lab.jpg", features: [] as string[] },
+    {
+      n: "02",
+      title: t("servicePage.svc02Title"),
+      description: t("servicePage.svc02Desc"),
+      img: "/assets/images/service-water-treatment.jpg",
+      features: [
+        t("servicePage.svc02Feature1"),
+        t("servicePage.svc02Feature2"),
+        t("servicePage.svc02Feature3"),
+        t("servicePage.svc02Feature4"),
+      ],
+    },
+    { n: "03", title: t("servicePage.svc03Title"), description: t("servicePage.svc03Desc"), img: "/assets/images/service-pool-care.jpg", features: [] as string[] },
+    {
+      n: "04",
+      title: t("servicePage.svc04Title"),
+      description: t("servicePage.svc04Desc"),
+      img: "/assets/images/service-maintenance.jpg",
+      features: [
+        t("servicePage.svc04Feature1"),
+        t("servicePage.svc04Feature2"),
+        t("servicePage.svc04Feature3"),
+        t("servicePage.svc04Feature4"),
+        t("servicePage.svc04Feature5"),
+        t("servicePage.svc04Feature6"),
+      ],
+    },
+    {
+      n: "05",
+      title: t("servicePage.svc05Title"),
+      description: t("servicePage.svc05Desc"),
+      img: "/assets/images/lab-feature.jpg",
+      features: [
+        t("servicePage.svc05Feature1"),
+        t("servicePage.svc05Feature2"),
+        t("servicePage.svc05Feature3"),
+        t("servicePage.svc05Feature4"),
+        t("servicePage.svc05Feature5"),
+        t("servicePage.svc05Feature6"),
+        t("servicePage.svc05Feature7"),
+      ],
+    },
+  ];
+
   return (
     <>
       {/* Hero */}
       <section className="border-b border-black/[0.08]">
         <div className="max-w-7xl mx-auto px-6 pt-20 pb-16 md:pt-28 md:pb-24">
           <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-black/50 mb-10">
-            Services — Pool care, end to end
+            {t("servicePage.eyebrow")}
           </p>
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-end">
             <div className="lg:col-span-7">
               <h1 className="font-heading font-[700] text-[clamp(2.5rem,6vw,5.25rem)] leading-[0.95] tracking-[-0.02em] text-[var(--navy)]">
-                Five services.
+                {t("servicePage.heroLine1")}
                 <br />
-                One team that <span className="text-[var(--aqua)]">owns the outcome.</span>
+                {t("servicePage.heroLine2")} <span className="text-[var(--aqua)]">{t("servicePage.heroLine3")}</span>
               </h1>
             </div>
             <div className="lg:col-span-5">
               <p className="text-[var(--navy)]/70 text-base md:text-lg leading-relaxed max-w-md">
-                From a single water problem to a full maintenance contract — handled by the
-                technicians who&apos;ve worked on Thailand&apos;s pools for two decades.
+                {t("servicePage.heroSub")}
               </p>
               <div className="flex items-center gap-6 mt-8">
                 <Link
                   href="/contactus"
                   className="inline-flex items-center gap-2 px-5 py-3 bg-[var(--navy)] text-white text-sm font-[600] hover:bg-black transition-colors"
                 >
-                  Get in touch
+                  {t("servicePage.ctaPrimary")}
                   <ArrowUpRight className="w-4 h-4" />
                 </Link>
                 <Link
                   href="/lab"
                   className="text-sm font-[600] text-[var(--navy)] underline underline-offset-[6px] decoration-[var(--aqua)] decoration-2 hover:decoration-[var(--navy)] transition-colors"
                 >
-                  Visit the lab
+                  {t("servicePage.ctaSecondary")}
                 </Link>
               </div>
             </div>
@@ -187,30 +173,30 @@ export default function ServicePage() {
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-end">
             <div className="lg:col-span-7">
               <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-black/50 mb-4">
-                Ready when you are
+                {t("servicePage.closingEyebrow")}
               </p>
               <h2 className="font-heading font-[700] text-3xl md:text-5xl tracking-[-0.02em] text-[var(--navy)] leading-[1.05]">
-                Eleven branches across Thailand —{" "}
-                <span className="text-[var(--aqua)]">we cover the country.</span>
+                {t("servicePage.closingTitle1")}{" "}
+                <span className="text-[var(--aqua)]">{t("servicePage.closingTitle2")}</span>
               </h2>
             </div>
             <div className="lg:col-span-5">
               <p className="text-[var(--navy)]/70 leading-relaxed mb-8 max-w-md">
-                Tell us what you need and we&apos;ll get the right technician to your pool.
+                {t("servicePage.closingBody")}
               </p>
               <div className="flex items-center gap-6">
                 <Link
                   href="/contactus"
                   className="inline-flex items-center gap-2 px-5 py-3 bg-[var(--navy)] text-white text-sm font-[600] hover:bg-black transition-colors"
                 >
-                  Contact us
+                  {t("servicePage.closingCtaPrimary")}
                   <ArrowUpRight className="w-4 h-4" />
                 </Link>
                 <Link
                   href="/shop"
                   className="text-sm font-[600] text-[var(--navy)] underline underline-offset-[6px] decoration-[var(--aqua)] decoration-2 hover:decoration-[var(--navy)] transition-colors"
                 >
-                  Browse equipment
+                  {t("servicePage.closingCtaSecondary")}
                 </Link>
               </div>
             </div>
