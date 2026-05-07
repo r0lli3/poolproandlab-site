@@ -1,12 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { Send, CheckCircle2, Loader2 } from "lucide-react";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
+import { ArrowUpRight, Loader2 } from "lucide-react";
 
 type FormState = "idle" | "submitting" | "success" | "error";
+
+const fieldClass =
+  "w-full bg-transparent border-0 border-b border-black/[0.15] focus:border-[var(--navy)] focus:outline-none px-0 py-3 text-[var(--navy)] placeholder:text-black/35 transition-colors";
 
 export function ContactForm() {
   const [state, setState] = useState<FormState>("idle");
@@ -39,17 +39,19 @@ export function ContactForm() {
 
   if (state === "success") {
     return (
-      <div className="bg-white rounded-2xl border border-[oklch(0.91_0.01_220)] p-12 text-center">
-        <CheckCircle2 className="w-14 h-14 text-[var(--aqua)] mx-auto mb-4" />
-        <h3 className="font-heading text-xl font-[700] text-[var(--navy)] mb-2">
-          Message Sent!
+      <div className="border border-black/[0.08] p-12 text-center">
+        <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-[var(--aqua)] mb-4">
+          Message sent
+        </p>
+        <h3 className="font-heading font-[700] text-3xl text-[var(--navy)] mb-3 tracking-[-0.01em]">
+          Thanks — we&apos;ll be in touch.
         </h3>
-        <p className="text-[var(--navy)]/60 mb-6">
-          Thank you for contacting Pool Pro&amp;Lab. We&apos;ll get back to you soon.
+        <p className="text-[var(--navy)]/60 mb-6 max-w-md mx-auto">
+          Someone from Pool Pro&amp;Lab will get back to you shortly.
         </p>
         <button
           onClick={() => setState("idle")}
-          className="text-sm font-heading font-[700] text-[var(--aqua)] hover:underline"
+          className="text-sm font-[600] text-[var(--navy)] underline underline-offset-[6px] decoration-[var(--aqua)] decoration-2 hover:decoration-[var(--navy)] transition-colors"
         >
           Send another message
         </button>
@@ -58,107 +60,118 @@ export function ContactForm() {
   }
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="bg-white rounded-2xl border border-[oklch(0.91_0.01_220)] p-8 space-y-5"
-    >
-      <div className="grid sm:grid-cols-2 gap-5">
-        <div className="space-y-1.5">
-          <label htmlFor="name" className="text-sm font-heading font-[600] text-[var(--navy)]">
-            Full Name <span className="text-red-400">*</span>
+    <form onSubmit={handleSubmit} className="space-y-8">
+      <div className="grid sm:grid-cols-2 gap-x-10 gap-y-6">
+        <div>
+          <label
+            htmlFor="name"
+            className="font-mono text-[11px] tracking-[0.18em] uppercase text-black/50 block mb-1"
+          >
+            Name *
           </label>
-          <Input
+          <input
             id="name"
             required
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
             placeholder="Your name"
-            className="rounded-xl border-[oklch(0.91_0.01_220)] focus-visible:ring-[var(--aqua)]"
+            className={fieldClass}
           />
         </div>
-        <div className="space-y-1.5">
-          <label htmlFor="email" className="text-sm font-heading font-[600] text-[var(--navy)]">
-            Email Address <span className="text-red-400">*</span>
+        <div>
+          <label
+            htmlFor="email"
+            className="font-mono text-[11px] tracking-[0.18em] uppercase text-black/50 block mb-1"
+          >
+            Email *
           </label>
-          <Input
+          <input
             id="email"
             type="email"
             required
             value={formData.email}
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
             placeholder="your@email.com"
-            className="rounded-xl border-[oklch(0.91_0.01_220)] focus-visible:ring-[var(--aqua)]"
+            className={fieldClass}
           />
         </div>
-      </div>
-
-      <div className="grid sm:grid-cols-2 gap-5">
-        <div className="space-y-1.5">
-          <label htmlFor="phone" className="text-sm font-heading font-[600] text-[var(--navy)]">
-            Phone Number
+        <div>
+          <label
+            htmlFor="phone"
+            className="font-mono text-[11px] tracking-[0.18em] uppercase text-black/50 block mb-1"
+          >
+            Phone
           </label>
-          <Input
+          <input
             id="phone"
             type="tel"
             value={formData.phone}
             onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
             placeholder="0xx-xxx-xxxx"
-            className="rounded-xl border-[oklch(0.91_0.01_220)] focus-visible:ring-[var(--aqua)]"
+            className={fieldClass}
           />
         </div>
-        <div className="space-y-1.5">
-          <label htmlFor="subject" className="text-sm font-heading font-[600] text-[var(--navy)]">
-            Subject <span className="text-red-400">*</span>
+        <div>
+          <label
+            htmlFor="subject"
+            className="font-mono text-[11px] tracking-[0.18em] uppercase text-black/50 block mb-1"
+          >
+            Subject *
           </label>
-          <Input
+          <input
             id="subject"
             required
             value={formData.subject}
             onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
             placeholder="How can we help?"
-            className="rounded-xl border-[oklch(0.91_0.01_220)] focus-visible:ring-[var(--aqua)]"
+            className={fieldClass}
           />
         </div>
       </div>
 
-      <div className="space-y-1.5">
-        <label htmlFor="message" className="text-sm font-heading font-[600] text-[var(--navy)]">
-          Message <span className="text-red-400">*</span>
+      <div>
+        <label
+          htmlFor="message"
+          className="font-mono text-[11px] tracking-[0.18em] uppercase text-black/50 block mb-1"
+        >
+          Message *
         </label>
-        <Textarea
+        <textarea
           id="message"
           required
           rows={5}
           value={formData.message}
           onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-          placeholder="Tell us about your pool, your question, or the service you need..."
-          className="rounded-xl border-[oklch(0.91_0.01_220)] focus-visible:ring-[var(--aqua)] resize-none"
+          placeholder="Tell us about your pool, your question, or the service you need…"
+          className={`${fieldClass} resize-none`}
         />
       </div>
 
       {state === "error" && (
-        <p className="text-red-500 text-sm text-center">
+        <p className="text-red-500 text-sm">
           Something went wrong. Please try again or call us directly.
         </p>
       )}
 
-      <Button
-        type="submit"
-        disabled={state === "submitting"}
-        className="w-full bg-[var(--aqua)] hover:opacity-90 text-white font-heading font-[700] rounded-xl py-3 h-auto transition-opacity"
-      >
-        {state === "submitting" ? (
-          <>
-            <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-            Sending...
-          </>
-        ) : (
-          <>
-            <Send className="w-4 h-4 mr-2" />
-            Send Message
-          </>
-        )}
-      </Button>
+      <div>
+        <button
+          type="submit"
+          disabled={state === "submitting"}
+          className="inline-flex items-center gap-2 px-5 py-3 bg-[var(--navy)] text-white text-sm font-[600] hover:bg-black transition-colors disabled:opacity-60"
+        >
+          {state === "submitting" ? (
+            <>
+              <Loader2 className="w-4 h-4 animate-spin" />
+              Sending…
+            </>
+          ) : (
+            <>
+              Send message
+              <ArrowUpRight className="w-4 h-4" />
+            </>
+          )}
+        </button>
+      </div>
     </form>
   );
 }

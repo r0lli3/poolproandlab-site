@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Mail, Phone } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "How to Apply",
@@ -10,39 +10,39 @@ export const metadata: Metadata = {
 
 const steps = [
   {
-    num: "01",
-    title: "Complete Franchise Application Form",
+    n: "01",
+    title: "Send the application form",
     desc: "Complete the franchise application form and send it to the Franchise Manager.",
-    detail: "Email: business-contact@poolproandlab.com | Tel. Contact our franchise team",
+    detail: "business-contact@poolproandlab.com",
   },
   {
-    num: "02",
-    title: "Franchise Initial Meeting",
-    desc: "Franchise Initial meeting. The preliminary qualification of the applicant will be considered and an appointment will be made for the interview.",
+    n: "02",
+    title: "Initial meeting",
+    desc: "We review preliminary qualifications and schedule an interview with the franchise team.",
     detail: null,
   },
   {
-    num: "03",
-    title: "Financial Verification",
-    desc: "If the preliminary qualification meets the standard required, Pool Pro&Lab will provide details of the business.",
+    n: "03",
+    title: "Financial verification",
+    desc: "If the preliminary qualifications meet our standard, we share the full business details.",
     detail: null,
   },
   {
-    num: "04",
-    title: "Franchise Agreement",
-    desc: "Franchise agreement is signed.",
+    n: "04",
+    title: "Franchise agreement",
+    desc: "Both sides sign the franchise agreement.",
     detail: null,
   },
   {
-    num: "05",
-    title: "Training Program",
-    desc: "Pool Pro&Lab will provide a comprehensive training course for franchisee staff — covering products, services, operations, and business management.",
+    n: "05",
+    title: "Training program",
+    desc: "A comprehensive training course for you and your staff — products, services, operations, and business management.",
     detail: null,
   },
   {
-    num: "06",
-    title: "Branch Setup and Opening",
-    desc: "The office will be set up and decorated ready to operate. Pool Pro&Lab will send a staff member to coach during the beginning of the operation.",
+    n: "06",
+    title: "Branch setup and opening",
+    desc: "Office decoration to spec, equipment installation, and a Pool Pro&Lab staffer on-site to coach the start of operations.",
     detail: null,
   },
 ];
@@ -51,47 +51,54 @@ export default function HowToApplyPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-[var(--navy)] text-white py-16">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <p className="font-heading text-xs uppercase tracking-widest text-[var(--aqua)] font-[700] mb-3">
-            Join Our Franchise
+      <section className="border-b border-black/[0.08]">
+        <div className="max-w-7xl mx-auto px-6 pt-20 pb-16 md:pt-28 md:pb-24">
+          <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-black/50 mb-10">
+            How to apply — Six steps to opening
           </p>
-          <h1 className="font-heading text-3xl md:text-5xl font-[800] mb-4">
-            How to Apply
-          </h1>
-          <p className="text-white/70 text-base md:text-lg">
-            Steps for Franchise Application
-          </p>
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-end">
+            <div className="lg:col-span-7">
+              <h1 className="font-heading font-[700] text-[clamp(2.5rem,6vw,5.25rem)] leading-[0.95] tracking-[-0.02em] text-[var(--navy)]">
+                Six steps from
+                <br />
+                form to <span className="text-[var(--aqua)]">opening day.</span>
+              </h1>
+            </div>
+            <div className="lg:col-span-5">
+              <p className="text-[var(--navy)]/70 text-base md:text-lg leading-relaxed max-w-md">
+                A clear, predictable process. The whole thing takes around four months from signed
+                agreement to open doors.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Steps */}
-      <section className="max-w-4xl mx-auto px-6 py-20">
-        <div className="relative">
-          {/* Vertical line */}
-          <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-[oklch(0.91_0.01_220)] hidden md:block" />
-
-          <div className="space-y-8">
-            {steps.map((step, i) => (
-              <div key={step.num} className="relative flex gap-8 md:gap-12">
-                {/* Step number */}
-                <div className="relative shrink-0">
-                  <div className="w-12 h-12 rounded-full bg-[var(--aqua)] flex items-center justify-center text-white font-heading font-[800] text-sm shadow-lg shadow-[var(--aqua)]/30 z-10 relative">
-                    {step.num}
-                  </div>
+      <section className="border-b border-black/[0.08]">
+        <div className="max-w-7xl mx-auto px-6 py-16 md:py-20">
+          <div className="border-t border-black/[0.08]">
+            {steps.map((step) => (
+              <div
+                key={step.n}
+                className="grid md:grid-cols-12 gap-6 md:gap-10 py-8 md:py-10 border-b border-black/[0.08] items-start"
+              >
+                <div className="md:col-span-2">
+                  <span className="font-mono text-[11px] tracking-[0.18em] uppercase text-black/40 tabular-nums">
+                    {step.n}
+                  </span>
                 </div>
-                {/* Content */}
-                <div
-                  className={`flex-1 pb-8 ${i < steps.length - 1 ? "border-b border-[oklch(0.91_0.01_220)]" : ""}`}
-                >
-                  <h2 className="font-heading text-xl font-[700] text-[var(--navy)] mb-3">
+                <div className="md:col-span-5">
+                  <h2 className="font-heading font-[700] text-2xl md:text-3xl text-[var(--navy)] tracking-[-0.01em] leading-tight">
                     {step.title}
                   </h2>
-                  <p className="text-[var(--navy)]/70 leading-relaxed mb-3">{step.desc}</p>
+                </div>
+                <div className="md:col-span-5">
+                  <p className="text-[var(--navy)]/70 leading-relaxed">{step.desc}</p>
                   {step.detail && (
-                    <div className="bg-[var(--aqua)]/10 border border-[var(--aqua)]/20 rounded-xl px-4 py-3 text-sm text-[var(--navy)]/70">
+                    <p className="mt-3 font-mono text-sm text-[var(--navy)]/80 break-all">
                       {step.detail}
-                    </div>
+                    </p>
                   )}
                 </div>
               </div>
@@ -100,35 +107,39 @@ export default function HowToApplyPage() {
         </div>
       </section>
 
-      {/* Application contact */}
-      <section className="bg-gradient-to-br from-[oklch(0.97_0.02_198)] to-white py-16">
-        <div className="max-w-3xl mx-auto px-6 text-center">
-          <h2 className="font-heading text-2xl font-[800] text-[var(--navy)] mb-3">
-            Send Your Application
-          </h2>
-          <p className="text-[var(--navy)]/60 mb-8 leading-relaxed">
-            Ready to start your journey? Contact our franchise team to get the application form and
-            begin the process.
-          </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <Link
-              href="/business-contact"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--aqua)] text-white font-heading font-[700] rounded-full hover:opacity-90 transition-opacity"
-            >
-              <Mail className="w-4 h-4" />
-              Contact Franchise Team
-            </Link>
-            <a
-              href="tel:0818445564"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--navy)] text-white font-heading font-[600] rounded-full hover:opacity-90 transition-opacity"
-            >
-              <Phone className="w-4 h-4" />
-              Call Us
-            </a>
+      {/* CTA close */}
+      <section>
+        <div className="max-w-7xl mx-auto px-6 py-20 md:py-28">
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-end">
+            <div className="lg:col-span-7">
+              <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-black/50 mb-4">
+                Step zero
+              </p>
+              <h2 className="font-heading font-[700] text-3xl md:text-5xl tracking-[-0.02em] text-[var(--navy)] leading-[1.05]">
+                Send the form. <span className="text-[var(--aqua)]">We&apos;ll take it from there.</span>
+              </h2>
+            </div>
+            <div className="lg:col-span-5">
+              <p className="text-[var(--navy)]/70 leading-relaxed mb-8 max-w-md">
+                Get the application form and start the conversation with our franchise team.
+              </p>
+              <div className="flex items-center gap-6 flex-wrap">
+                <Link
+                  href="/business-contact"
+                  className="inline-flex items-center gap-2 px-5 py-3 bg-[var(--navy)] text-white text-sm font-[600] hover:bg-black transition-colors"
+                >
+                  Contact franchise team
+                  <ArrowUpRight className="w-4 h-4" />
+                </Link>
+                <a
+                  href="tel:0818445564"
+                  className="text-sm font-[600] text-[var(--navy)] underline underline-offset-[6px] decoration-[var(--aqua)] decoration-2 hover:decoration-[var(--navy)] transition-colors tabular-nums"
+                >
+                  081-844-5564
+                </a>
+              </div>
+            </div>
           </div>
-          <p className="mt-6 text-sm text-[var(--navy)]/50">
-            ⚠️ Note: Please contact us for the most current franchise contact information.
-          </p>
         </div>
       </section>
     </>

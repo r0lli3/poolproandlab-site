@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { FlaskConical, CheckCircle2, ArrowRight, Beaker, Clock, MapPin } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Pool Water Testing Lab",
@@ -10,34 +10,47 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Pool Water Testing Lab | Pool Pro&Lab",
     description:
-      "ASEAN's first computerized pool water analysis lab. 11 parameters tested. Results and recommendations instantly.",
+      "ASEAN's first computerized pool water analysis lab. 11 parameters tested. Results and recommendations within seven days.",
   },
 };
 
 const parameters = [
-  "Free Chlorine", "Total Chlorine", "pH Level", "Total Alkalinity",
-  "Calcium Hardness", "Cyanuric Acid", "Total Dissolved Solids",
-  "Iron", "Copper", "Salt Level", "Water Temperature",
+  "Free Chlorine",
+  "Total Chlorine",
+  "pH Level",
+  "Total Alkalinity",
+  "Calcium Hardness",
+  "Cyanuric Acid",
+  "Total Dissolved Solids",
+  "Iron",
+  "Copper",
+  "Salt Level",
+  "Water Temperature",
+];
+
+const risks = [
+  "Damaged hair and scalp",
+  "Skin problems and irritation",
+  "Tooth decay",
+  "Respiratory infections",
+  "Pink eye (conjunctivitis)",
 ];
 
 const steps = [
   {
-    num: "01",
-    title: "Bring Your Water Sample",
-    desc: "Bring the water sample to any Pool Pro&Lab branch and get results and recommendations instantly.",
-    icon: Beaker,
+    n: "01",
+    title: "Bring your water sample",
+    desc: "Drop a sample at any of our four branches. We test on the spot and walk you through the results before you leave.",
   },
   {
-    num: "02",
-    title: "Expert Collection Service",
-    desc: "Our team of experts can collect the water sample from your location and provide results within 7 days.",
-    icon: MapPin,
+    n: "02",
+    title: "Or have us collect it",
+    desc: "Our technicians can pick the sample up from your pool. Written results and recommendations come back within seven days.",
   },
   {
-    num: "03",
-    title: "Instant Recommendations",
-    desc: "Receive a computerized report with precise treatment recommendations to restore perfect water balance.",
-    icon: Clock,
+    n: "03",
+    title: "Get a real prescription",
+    desc: "Computerized analysis turns into a precise treatment plan — exact products, exact doses — to bring water back into balance.",
   },
 ];
 
@@ -45,192 +58,196 @@ export default function LabPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden">
-        <div className="relative h-72 md:h-96">
-          <Image
-            src="/assets/images/lab-hero.jpg"
-            alt="Pool Water Testing Lab"
-            fill
-            className="object-cover object-center"
-            priority
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-[var(--navy)]/60 via-[var(--navy)]/40 to-[var(--navy)]/70" />
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-6">
-            <div className="inline-flex items-center gap-2 bg-[var(--aqua)]/20 border border-[var(--aqua)]/40 text-[var(--aqua)] rounded-full px-4 py-1.5 text-xs font-heading font-[700] uppercase tracking-widest mb-4">
-              <FlaskConical className="w-3.5 h-3.5" />
-              Water Testing Lab
+      <section className="border-b border-black/[0.08]">
+        <div className="max-w-7xl mx-auto px-6 pt-20 pb-16 md:pt-28 md:pb-24">
+          <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-black/50 mb-10">
+            The Lab — ASEAN&apos;s first computerized pool water analysis
+          </p>
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-end">
+            <div className="lg:col-span-7">
+              <h1 className="font-heading font-[700] text-[clamp(2.5rem,6vw,5.25rem)] leading-[0.95] tracking-[-0.02em] text-[var(--navy)]">
+                You can&apos;t see
+                <br />
+                what&apos;s in your pool.
+                <br />
+                <span className="text-[var(--aqua)]">We can.</span>
+              </h1>
             </div>
-            <h1 className="font-heading text-3xl md:text-5xl font-[800] mb-3">
-              Pool Water Testing Lab
-            </h1>
-            <p className="text-white/80 text-base md:text-lg max-w-lg">
-              The first computerized water analysis laboratory in ASEAN
-            </p>
+            <div className="lg:col-span-5">
+              <p className="text-[var(--navy)]/70 text-base md:text-lg leading-relaxed max-w-md">
+                A computerized lab measures eleven parameters of your pool&apos;s chemistry and
+                returns a real treatment plan — not a guess.
+              </p>
+              <div className="flex items-center gap-6 mt-8">
+                <Link
+                  href="/contactus"
+                  className="inline-flex items-center gap-2 px-5 py-3 bg-[var(--navy)] text-white text-sm font-[600] hover:bg-black transition-colors"
+                >
+                  Book a water test
+                  <ArrowUpRight className="w-4 h-4" />
+                </Link>
+                <Link
+                  href="#process"
+                  className="text-sm font-[600] text-[var(--navy)] underline underline-offset-[6px] decoration-[var(--aqua)] decoration-2 hover:decoration-[var(--navy)] transition-colors"
+                >
+                  See how it works
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          <div className="relative aspect-[16/8] mt-16 md:mt-24 overflow-hidden bg-[oklch(0.96_0.01_220)]">
+            <Image
+              src="/assets/images/lab-hero.jpg"
+              alt="Pool Water Testing Laboratory"
+              fill
+              className="object-cover object-center"
+              priority
+              sizes="(max-width: 1280px) 100vw, 1280px"
+            />
           </div>
         </div>
       </section>
 
-      {/* Tagline */}
-      <section className="bg-[oklch(0.97_0.02_198)] py-14">
-        <div className="max-w-3xl mx-auto px-6 text-center">
-          <p className="font-heading text-xl md:text-2xl font-[700] text-[var(--navy)] leading-relaxed">
-            &ldquo;Because you never know what lies beneath the sparkling blue water in your swimming pool…&rdquo;
+      {/* Editorial pull quote */}
+      <section className="border-b border-black/[0.08]">
+        <div className="max-w-4xl mx-auto px-6 py-20 md:py-28">
+          <p className="font-heading text-2xl md:text-4xl font-[500] text-[var(--navy)] leading-[1.2] tracking-[-0.01em]">
+            &ldquo;Because you never know what lies beneath the sparkling blue water in your
+            swimming pool.&rdquo;
           </p>
         </div>
       </section>
 
-      {/* Health section */}
-      <section className="max-w-7xl mx-auto px-6 py-20">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div>
-            <p className="font-heading text-xs uppercase tracking-widest text-[var(--aqua)] font-[700] mb-4">
-              Why It Matters
-            </p>
-            <h2 className="font-heading text-3xl md:text-4xl font-[800] text-[var(--navy)] mb-5">
-              Is Your Pool Water
-              <br />
-              <span className="text-[var(--aqua)]">Health Enough to Swim?</span>
-            </h2>
-            <p className="text-[var(--navy)]/70 leading-relaxed mb-6">
-              Did you know? When you take a swim in your pool this may cause a risk for health
-              issues such as:
-            </p>
-            <ul className="space-y-3 mb-8">
-              {[
-                "Damaged hair and scalp",
-                "Skin problems and irritation",
-                "Tooth decay",
-                "Respiratory infections",
-                "Pink eye (conjunctivitis)",
-              ].map((item) => (
-                <li key={item} className="flex items-center gap-3 text-sm text-[var(--navy)]/80">
-                  <CheckCircle2 className="w-5 h-5 text-red-400 shrink-0" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <p className="text-[var(--navy)]/70 leading-relaxed">
-              Because your pool water may not be good enough quality. Our computerized lab catches
-              problems before they affect you and your family.
-            </p>
-          </div>
-          <div className="grid grid-cols-2 gap-4">
-            <div className="relative rounded-2xl overflow-hidden aspect-[3/4] shadow-lg">
-              <Image
-                src="/assets/images/service-water-lab.jpg"
-                alt="Water testing technician"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 50vw, 25vw"
-              />
+      {/* Why it matters */}
+      <section className="border-b border-black/[0.08]">
+        <div className="max-w-7xl mx-auto px-6 py-20 md:py-28">
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+            <div className="lg:col-span-5">
+              <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-black/50 mb-4">
+                001 — Why it matters
+              </p>
+              <h2 className="font-heading font-[700] text-3xl md:text-5xl tracking-[-0.02em] text-[var(--navy)] leading-[1.05]">
+                Bad water doesn&apos;t look bad. It just makes you sick.
+              </h2>
             </div>
-            <div className="flex flex-col gap-4 pt-8">
-              <div className="relative rounded-2xl overflow-hidden aspect-square shadow-lg">
-                <Image
-                  src="/assets/images/service-water-treatment.jpg"
-                  alt="Pool water treatment"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 50vw, 25vw"
-                />
-              </div>
-              <div className="bg-[var(--navy)] rounded-2xl p-5 text-white">
-                <FlaskConical className="w-8 h-8 text-[var(--aqua)] mb-3" />
-                <p className="font-heading font-[800] text-2xl text-[var(--aqua)]">11</p>
-                <p className="text-white/70 text-sm mt-1">Parameters Tested</p>
-              </div>
+            <div className="lg:col-span-7">
+              <p className="text-[var(--navy)]/70 leading-relaxed mb-10 max-w-2xl">
+                Out-of-balance pool chemistry quietly causes a long list of problems for the
+                people who actually swim in it. Our lab catches these before they reach you.
+              </p>
+              <ul className="border-t border-black/[0.08]">
+                {risks.map((item, i) => (
+                  <li
+                    key={item}
+                    className="flex items-start gap-6 py-4 border-b border-black/[0.08] text-sm text-[var(--navy)]"
+                  >
+                    <span className="font-mono text-[11px] text-black/40 pt-0.5 tabular-nums">
+                      0{i + 1}
+                    </span>
+                    <span className="leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Pool Water Check Up */}
-      <section className="bg-[var(--navy)] text-white py-20">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <p className="font-heading text-xs uppercase tracking-widest text-[var(--aqua)] font-[700] mb-3">
-              Our Process
+      {/* The 11 parameters */}
+      <section className="border-b border-black/[0.08]">
+        <div className="max-w-7xl mx-auto px-6 py-20 md:py-28">
+          <div className="max-w-3xl mb-16">
+            <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-black/50 mb-4">
+              002 — What we measure
             </p>
-            <h2 className="font-heading text-3xl md:text-4xl font-[800] mb-4">
-              Pool Water Check Up
+            <h2 className="font-heading font-[700] text-3xl md:text-5xl tracking-[-0.02em] text-[var(--navy)] leading-[1.05]">
+              Eleven parameters. One report. Real recommendations.
             </h2>
-            <p className="text-white/70 max-w-2xl mx-auto leading-relaxed">
-              Our Pool Water Check Up program checks 11 parameters of the water chemical balance
-              and evaluates whether your swimming pool is in ideal condition — using computerized
-              water analysis. The first laboratory of its kind in ASEAN.
-            </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 mb-12">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 border-l border-t border-black/[0.08]">
             {parameters.map((param, i) => (
               <div
                 key={param}
-                className="bg-white/10 rounded-xl p-3 text-center border border-white/10 hover:border-[var(--aqua)]/40 hover:bg-white/15 transition-colors"
+                className="border-r border-b border-black/[0.08] p-6 flex items-start justify-between gap-4"
               >
-                <span className="block font-heading text-[var(--aqua)] text-xs font-[700] mb-1">
+                <span className="font-heading font-[600] text-base md:text-lg text-[var(--navy)] leading-tight tracking-[-0.01em]">
+                  {param}
+                </span>
+                <span className="font-mono text-[11px] text-black/40 tabular-nums shrink-0">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <span className="text-white/80 text-xs leading-tight">{param}</span>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Easy way to get tested */}
-      <section className="max-w-7xl mx-auto px-6 py-20">
-        <div className="text-center mb-12">
-          <p className="font-heading text-xs uppercase tracking-widest text-[var(--aqua)] font-[700] mb-3">
-            Simple Process
-          </p>
-          <h2 className="font-heading text-3xl md:text-4xl font-[800] text-[var(--navy)]">
-            Easy Way to Get the Water Test
-          </h2>
-        </div>
-        <div className="grid md:grid-cols-3 gap-8">
-          {steps.map((step) => (
-            <div
-              key={step.num}
-              className="relative bg-white rounded-2xl p-8 border border-[oklch(0.91_0.01_220)] hover:shadow-lg transition-shadow"
-            >
-              <span className="font-heading text-6xl font-[800] text-[var(--aqua)]/15 absolute top-4 right-6">
-                {step.num}
-              </span>
-              <div className="w-12 h-12 rounded-xl bg-[var(--aqua)]/10 flex items-center justify-center mb-5">
-                <step.icon className="w-6 h-6 text-[var(--aqua)]" />
+      {/* Process */}
+      <section id="process" className="border-b border-black/[0.08]">
+        <div className="max-w-7xl mx-auto px-6 py-20 md:py-28">
+          <div className="max-w-3xl mb-16">
+            <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-black/50 mb-4">
+              003 — The process
+            </p>
+            <h2 className="font-heading font-[700] text-3xl md:text-5xl tracking-[-0.02em] text-[var(--navy)] leading-[1.05]">
+              Three ways to get your water tested.
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 border-t border-black/[0.08]">
+            {steps.map((step) => (
+              <div
+                key={step.n}
+                className="p-8 md:p-10 border-b md:border-b-0 md:border-r last:md:border-r-0 border-black/[0.08]"
+              >
+                <span className="font-mono text-[11px] tracking-[0.18em] uppercase text-black/40 block mb-12">
+                  {step.n}
+                </span>
+                <h3 className="font-heading font-[700] text-2xl text-[var(--navy)] mb-4 tracking-[-0.01em]">
+                  {step.title}
+                </h3>
+                <p className="text-sm text-[var(--navy)]/70 leading-relaxed">{step.desc}</p>
               </div>
-              <h3 className="font-heading font-[700] text-lg text-[var(--navy)] mb-3">
-                {step.title}
-              </h3>
-              <p className="text-[var(--navy)]/60 text-sm leading-relaxed">{step.desc}</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="bg-gradient-to-r from-[var(--aqua)] to-[oklch(0.65_0.16_210)] text-white py-16">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="font-heading text-2xl md:text-3xl font-[800] mb-4">
-            Ready to Test Your Pool Water?
-          </h2>
-          <p className="text-white/80 mb-8 leading-relaxed">
-            Visit any of our 4 branches across Thailand or contact us to arrange a water sample collection.
-          </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <Link
-              href="/contactus"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-white text-[var(--aqua)] font-heading font-[700] rounded-full hover:bg-white/90 transition-opacity"
-            >
-              Book Now <ArrowRight className="w-4 h-4" />
-            </Link>
-            <Link
-              href="/service"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-white/20 text-white font-heading font-[600] rounded-full hover:bg-white/30 transition-colors border border-white/30"
-            >
-              Our Services
-            </Link>
+      {/* CTA close */}
+      <section>
+        <div className="max-w-7xl mx-auto px-6 py-20 md:py-28">
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-end">
+            <div className="lg:col-span-7">
+              <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-black/50 mb-4">
+                004 — Ready when you are
+              </p>
+              <h2 className="font-heading font-[700] text-3xl md:text-5xl tracking-[-0.02em] text-[var(--navy)] leading-[1.05]">
+                Drop a sample today. <span className="text-[var(--aqua)]">Swim cleaner tomorrow.</span>
+              </h2>
+            </div>
+            <div className="lg:col-span-5">
+              <p className="text-[var(--navy)]/70 leading-relaxed mb-8 max-w-md">
+                Visit any of our four branches across Thailand, or contact us to arrange a sample
+                collection.
+              </p>
+              <div className="flex items-center gap-6">
+                <Link
+                  href="/contactus"
+                  className="inline-flex items-center gap-2 px-5 py-3 bg-[var(--navy)] text-white text-sm font-[600] hover:bg-black transition-colors"
+                >
+                  Book a water test
+                  <ArrowUpRight className="w-4 h-4" />
+                </Link>
+                <Link
+                  href="/service"
+                  className="text-sm font-[600] text-[var(--navy)] underline underline-offset-[6px] decoration-[var(--aqua)] decoration-2 hover:decoration-[var(--navy)] transition-colors"
+                >
+                  See our services
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>

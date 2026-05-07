@@ -1,73 +1,69 @@
 "use client";
 
-import type { Metadata } from "next";
 import Link from "next/link";
 import { useState } from "react";
-import { ChevronDown, ArrowRight } from "lucide-react";
+import { Plus, ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const faqs = [
   {
     q: "How long does the shop decoration take before opening for business?",
-    a: "About 4 months from the time the franchise agreement is signed and location is confirmed.",
+    a: "About four months from the time the franchise agreement is signed and the location is confirmed.",
   },
   {
     q: "What will the franchisee get in return for its initial investment?",
-    a: "The initial investment includes: shop decoration as per prototype (depending on the location), all essential equipment and facilities, signage and supplies, assistance in marketing and advertising campaign, staff training, and continuous operation support.",
+    a: "Shop decoration to prototype standard (depending on location), all essential equipment and facilities, signage and supplies, marketing and advertising support, staff training, and continuous operational support.",
   },
   {
     q: "Is a minimum order imposed?",
-    a: "It depends on the location. Our franchise team will discuss the specifics with you during the initial meeting.",
+    a: "It depends on the location. Our franchise team will walk through the specifics with you during the initial meeting.",
   },
   {
     q: "Will the franchisor assist in location selection?",
-    a: "Yes — we have a team of experts who can recommend the most viable location. We can negotiate the rental charge on your behalf. We also have some prime areas for you to choose from.",
+    a: "Yes. We have a team of experts who recommend viable locations, can negotiate rental rates on your behalf, and have prime sites available.",
   },
   {
     q: "What is the franchise application process?",
-    a: "The process has 6 steps: complete franchise application form, attend initial meeting and interview, financial status assessment, franchise contract signing, training program, and finally outlet decoration and opening.",
+    a: "Six steps: application form, initial interview, financial assessment, contract signing, training program, and finally outlet decoration and opening.",
   },
   {
     q: "What training does Pool Pro&Lab provide?",
-    a: "We provide a comprehensive training program in two phases. Phase 1 is at our head office, covering products, services, and operations. Phase 2 is on-site training in your outlet, with a Pool Pro&Lab staff member to coach you during the beginning of the operation.",
+    a: "Two phases. Phase one is at our head office, covering products, services, and operations. Phase two is on-site at your outlet, with a Pool Pro&Lab staffer coaching you through the beginning of operations.",
   },
   {
     q: "What ongoing support is available after opening?",
-    a: "Franchisees receive ongoing support in: outlet management, operations, marketing, procurement, accounting and legal matters, business consultation, and research and development.",
+    a: "Outlet management, operations, marketing, procurement, accounting and legal, business consultation, and research and development — all on tap.",
   },
   {
     q: "Can I expand my franchise to multiple locations?",
-    a: "Yes. Pool Pro&Lab wants each franchisee to run a full-time business and achieve ownership success. Franchisees have the right to extend their business when they are ready to do so.",
+    a: "Yes. Pool Pro&Lab wants each franchisee running a full-time business with ownership success. Franchisees have the right to extend when ready.",
   },
 ];
 
-function FaqItem({ q, a }: { q: string; a: string }) {
+function FaqItem({ q, a, n }: { q: string; a: string; n: string }) {
   const [open, setOpen] = useState(false);
   return (
-    <div
-      className={cn(
-        "bg-white border rounded-2xl overflow-hidden transition-all duration-200",
-        open ? "border-[var(--aqua)]/30 shadow-md" : "border-[oklch(0.91_0.01_220)]"
-      )}
-    >
+    <div className="border-b border-black/[0.08]">
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left"
+        className="w-full flex items-start justify-between gap-6 py-6 md:py-8 text-left group"
       >
-        <span className="font-heading font-[700] text-[var(--navy)] text-sm sm:text-base">
+        <span className="font-mono text-[11px] tracking-[0.18em] uppercase text-black/40 shrink-0 pt-1.5 tabular-nums">
+          {n}
+        </span>
+        <span className="font-heading font-[600] text-[var(--navy)] text-lg md:text-xl flex-1 tracking-[-0.01em] leading-snug">
           {q}
         </span>
-        <ChevronDown
+        <Plus
           className={cn(
-            "w-5 h-5 text-[var(--aqua)] shrink-0 transition-transform duration-200",
-            open && "rotate-180"
+            "w-5 h-5 text-[var(--navy)]/60 shrink-0 mt-1 transition-transform duration-200 group-hover:text-[var(--aqua)]",
+            open && "rotate-45"
           )}
         />
       </button>
       {open && (
-        <div className="px-6 pb-5">
-          <div className="h-px bg-[oklch(0.91_0.01_220)] mb-4" />
-          <p className="text-[var(--navy)]/70 leading-relaxed text-sm">{a}</p>
+        <div className="pb-8 pl-[calc(11px_+_0.18em_+_1.5rem)] sm:pl-[64px] -mt-2">
+          <p className="text-[var(--navy)]/70 leading-relaxed max-w-3xl">{a}</p>
         </div>
       )}
     </div>
@@ -77,33 +73,65 @@ function FaqItem({ q, a }: { q: string; a: string }) {
 export default function FaqsPage() {
   return (
     <>
-      <section className="bg-[var(--navy)] text-white py-16">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <p className="font-heading text-xs uppercase tracking-widest text-[var(--aqua)] font-[700] mb-3">
-            Got Questions?
+      {/* Hero */}
+      <section className="border-b border-black/[0.08]">
+        <div className="max-w-7xl mx-auto px-6 pt-20 pb-16 md:pt-28 md:pb-24">
+          <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-black/50 mb-10">
+            FAQs — Franchise program
           </p>
-          <h1 className="font-heading text-3xl md:text-5xl font-[800] mb-4">FAQs</h1>
-          <p className="text-white/70">Questions &amp; Answers about our franchise program</p>
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-end">
+            <div className="lg:col-span-7">
+              <h1 className="font-heading font-[700] text-[clamp(2.5rem,6vw,5.25rem)] leading-[0.95] tracking-[-0.02em] text-[var(--navy)]">
+                Questions, <span className="text-[var(--aqua)]">answered.</span>
+              </h1>
+            </div>
+            <div className="lg:col-span-5">
+              <p className="text-[var(--navy)]/70 text-base md:text-lg leading-relaxed max-w-md">
+                Everything you&apos;d ask before signing a franchise agreement — and a few things
+                you didn&apos;t think to ask.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section className="max-w-3xl mx-auto px-6 py-20">
-        <div className="space-y-3">
-          {faqs.map((faq, i) => (
-            <FaqItem key={i} q={faq.q} a={faq.a} />
-          ))}
+      {/* FAQ list */}
+      <section className="border-b border-black/[0.08]">
+        <div className="max-w-7xl mx-auto px-6 py-16 md:py-20">
+          <div className="border-t border-black/[0.08]">
+            {faqs.map((faq, i) => (
+              <FaqItem key={i} q={faq.q} a={faq.a} n={String(i + 1).padStart(2, "0")} />
+            ))}
+          </div>
         </div>
+      </section>
 
-        <div className="mt-12 text-center">
-          <p className="text-[var(--navy)]/60 mb-6">
-            Still have questions? Contact our franchise team directly.
-          </p>
-          <Link
-            href="/business-contact"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--aqua)] text-white font-heading font-[700] rounded-full hover:opacity-90 transition-opacity"
-          >
-            Contact Franchise Team <ArrowRight className="w-4 h-4" />
-          </Link>
+      {/* CTA close */}
+      <section>
+        <div className="max-w-7xl mx-auto px-6 py-20 md:py-28">
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-end">
+            <div className="lg:col-span-7">
+              <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-black/50 mb-4">
+                Still have questions?
+              </p>
+              <h2 className="font-heading font-[700] text-3xl md:text-5xl tracking-[-0.02em] text-[var(--navy)] leading-[1.05]">
+                Talk to the franchise team.
+              </h2>
+            </div>
+            <div className="lg:col-span-5">
+              <p className="text-[var(--navy)]/70 leading-relaxed mb-8 max-w-md">
+                We&apos;ll walk you through the program, the economics, and what running a Pool
+                Pro&amp;Lab actually looks like.
+              </p>
+              <Link
+                href="/business-contact"
+                className="inline-flex items-center gap-2 px-5 py-3 bg-[var(--navy)] text-white text-sm font-[600] hover:bg-black transition-colors"
+              >
+                Contact franchise team
+                <ArrowUpRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
     </>

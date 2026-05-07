@@ -23,7 +23,7 @@ const navLinks = [
       { label: "Business Contact", href: "/business-contact" },
     ],
   },
-  { label: "Contact Us", href: "/contactus" },
+  { label: "Contact", href: "/contactus" },
 ];
 
 export function Header() {
@@ -39,12 +39,10 @@ export function Header() {
 
   return (
     <>
-      {/* Top bar */}
-      <div className="bg-[var(--navy)] text-white/80 text-xs hidden md:block">
-        <div className="max-w-7xl mx-auto px-6 py-2 flex items-center justify-between">
-          <span className="font-heading tracking-widest uppercase text-white/50 text-[10px]">
-            Pool Water Testing Lab &amp; Supplies
-          </span>
+      {/* Quiet utility strip */}
+      <div className="hidden md:block border-b border-black/[0.08]">
+        <div className="max-w-7xl mx-auto px-6 py-2 flex items-center justify-between font-mono text-[11px] tracking-[0.14em] uppercase text-black/55">
+          <span>Pool Equipment · Water Lab · Service</span>
           <div className="flex items-center gap-6">
             <a
               href="tel:0818445564"
@@ -67,10 +65,10 @@ export function Header() {
       {/* Main header */}
       <header
         className={cn(
-          "sticky top-0 z-50 w-full transition-all duration-300",
+          "sticky top-0 z-50 w-full transition-colors duration-200 border-b",
           scrolled
-            ? "bg-white/95 backdrop-blur-md shadow-sm"
-            : "bg-white"
+            ? "bg-white/95 backdrop-blur-md border-black/[0.08]"
+            : "bg-white border-black/[0.08]"
         )}
       >
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
@@ -81,7 +79,7 @@ export function Header() {
               alt="Pool Pro&Lab"
               width={120}
               height={44}
-              className="h-10 w-auto object-contain"
+              className="h-9 w-auto object-contain"
               priority
             />
           </Link>
@@ -92,7 +90,7 @@ export function Header() {
               link.children ? (
                 <div key={link.label} className="relative group">
                   <button
-                    className="flex items-center gap-1 px-3 py-2 text-sm font-heading font-600 text-[var(--navy)] hover:text-[var(--aqua)] transition-colors rounded-md"
+                    className="flex items-center gap-1 px-3 py-2 text-sm font-[500] text-[var(--navy)] hover:text-[var(--aqua)] transition-colors"
                     onMouseEnter={() => setFranchiseOpen(true)}
                     onMouseLeave={() => setFranchiseOpen(false)}
                   >
@@ -101,18 +99,18 @@ export function Header() {
                   </button>
                   <div
                     className={cn(
-                      "absolute top-full left-0 pt-1 transition-all duration-200",
+                      "absolute top-full left-0 pt-2 transition-all duration-150",
                       "opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto"
                     )}
                     onMouseEnter={() => setFranchiseOpen(true)}
                     onMouseLeave={() => setFranchiseOpen(false)}
                   >
-                    <div className="bg-white rounded-xl shadow-xl border border-[oklch(0.91_0.01_220)] py-2 min-w-[200px]">
+                    <div className="bg-white border border-black/[0.08] py-2 min-w-[220px] shadow-sm">
                       {link.children.map((child) => (
                         <Link
                           key={child.href}
                           href={child.href}
-                          className="block px-4 py-2.5 text-sm text-[var(--navy)] hover:text-[var(--aqua)] hover:bg-[oklch(0.96_0.01_220)] transition-colors"
+                          className="block px-4 py-2.5 text-sm text-[var(--navy)] hover:text-[var(--aqua)] hover:bg-[oklch(0.97_0.01_220)] transition-colors"
                         >
                           {child.label}
                         </Link>
@@ -124,15 +122,15 @@ export function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="px-3 py-2 text-sm font-heading font-[600] text-[var(--navy)] hover:text-[var(--aqua)] transition-colors rounded-md"
+                  className="px-3 py-2 text-sm font-[500] text-[var(--navy)] hover:text-[var(--aqua)] transition-colors"
                 >
                   {link.label}
                 </Link>
               )
             )}
             <Link
-              href="/contactus"
-              className="ml-2 px-5 py-2 bg-[var(--aqua)] text-white text-sm font-heading font-[700] rounded-full hover:opacity-90 transition-opacity"
+              href="/lab"
+              className="ml-3 px-5 py-2 bg-[var(--navy)] text-white text-sm font-[600] hover:bg-black transition-colors"
             >
               Book Lab Test
             </Link>
@@ -150,8 +148,8 @@ export function Header() {
 
         {/* Mobile menu */}
         {mobileOpen && (
-          <div className="lg:hidden bg-white border-t border-[oklch(0.91_0.01_220)] px-6 py-4 space-y-1">
-            <div className="mb-4 pb-4 border-b border-[oklch(0.91_0.01_220)] flex flex-col gap-2 text-sm text-[var(--navy)]/70">
+          <div className="lg:hidden bg-white border-t border-black/[0.08] px-6 py-4 space-y-1">
+            <div className="mb-4 pb-4 border-b border-black/[0.08] flex flex-col gap-2 text-sm text-[var(--navy)]/70">
               <a href="tel:0818445564" className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-[var(--aqua)]" /> 081-844-5564
               </a>
@@ -163,7 +161,7 @@ export function Header() {
               link.children ? (
                 <div key={link.label}>
                   <button
-                    className="w-full flex items-center justify-between py-2.5 text-sm font-heading font-[600] text-[var(--navy)]"
+                    className="w-full flex items-center justify-between py-2.5 text-sm font-[600] text-[var(--navy)]"
                     onClick={() => setFranchiseOpen(!franchiseOpen)}
                   >
                     {link.label}
@@ -193,7 +191,7 @@ export function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="block py-2.5 text-sm font-heading font-[600] text-[var(--navy)] hover:text-[var(--aqua)] transition-colors"
+                  className="block py-2.5 text-sm font-[500] text-[var(--navy)] hover:text-[var(--aqua)] transition-colors"
                   onClick={() => setMobileOpen(false)}
                 >
                   {link.label}
@@ -202,8 +200,8 @@ export function Header() {
             )}
             <div className="pt-4">
               <Link
-                href="/contactus"
-                className="block text-center px-5 py-2.5 bg-[var(--aqua)] text-white text-sm font-heading font-[700] rounded-full hover:opacity-90 transition-opacity"
+                href="/lab"
+                className="block text-center px-5 py-3 bg-[var(--navy)] text-white text-sm font-[600] hover:bg-black transition-colors"
                 onClick={() => setMobileOpen(false)}
               >
                 Book Lab Test

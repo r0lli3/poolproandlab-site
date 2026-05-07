@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { FlaskConical, Droplets, Wrench, Zap, ArrowRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Our Services",
@@ -11,62 +11,62 @@ export const metadata: Metadata = {
 
 const services = [
   {
-    icon: FlaskConical,
+    n: "01",
     title: "Computerized Pool Water Lab",
     description:
-      "A more advanced water testing method than the regular practice, where our laboratory specialists will analyze as many as 11 variables of the water chemical balance and evaluate whether your swimming pool is in the ideal condition to swim in or not. We will make our recommendations and show you step by step on how to care for your pool water.",
+      "Our laboratory specialists analyze eleven variables of your pool's chemical balance and tell you exactly whether the water is in ideal condition to swim in. You leave with a precise plan — not a guess.",
     img: "/assets/images/service-water-lab.jpg",
     features: [],
   },
   {
-    icon: Droplets,
-    title: "Advance Water Treatment",
-    description: "Based on use of premium Australian imported products:",
+    n: "02",
+    title: "Advanced Water Treatment",
+    description:
+      "Premium Australian products, applied by people who have done this for two decades.",
     img: "/assets/images/service-water-treatment.jpg",
     features: [
-      "Sanitizer & Balancer",
-      "Calcium & pH Buffer",
-      "Crystal Clear Clarifier & Pool Solutions",
-      "Pool Protection",
+      "Sanitizer & balancer",
+      "Calcium & pH buffer",
+      "Crystal-clear clarifier and pool solutions",
+      "Long-term pool protection",
     ],
   },
   {
-    icon: Wrench,
+    n: "03",
     title: "Pool Care & Cleaning",
     description:
-      "Our Pool Pro&Lab technicians will provide a range of essential maintenance services uniquely tailored to your pool. From a full vacuum to water balancing and equipment checks, we will ensure your pool remains in tip top condition.",
+      "Routine maintenance tailored to the way your pool actually behaves — full vacuum, water balancing, equipment checks. Your pool stays in tip-top condition.",
     img: "/assets/images/service-pool-care.jpg",
     features: [],
   },
   {
-    icon: Wrench,
-    title: "Pool Maintenance, Equipment & Repair",
+    n: "04",
+    title: "Maintenance, Equipment & Repair",
     description:
-      "Regular or casual pool servicing. Let us take care of your pool year-round, delivered by highly-trained and experienced technicians.",
+      "Year-round pool servicing delivered by highly-trained technicians. Casual or contracted.",
     img: "/assets/images/service-maintenance.jpg",
     features: [
-      "Filter Repair & Change Filter Media",
-      "Salt Chlorinator Repair",
-      "Robot Parts Replacement",
-      "Pool Pumps Repair",
-      "Under Water Light Repair",
-      "General Equipment Repair",
+      "Filter repair and media replacement",
+      "Salt chlorinator repair",
+      "Robot parts replacement",
+      "Pool pumps repair",
+      "Underwater light repair",
+      "General equipment repair",
     ],
   },
   {
-    icon: Zap,
+    n: "05",
     title: "Water Problem Eliminator",
-    description:
-      "We diagnose and solve any pool water problem quickly and effectively:",
+    description: "Diagnose and solve any pool water problem — quickly, effectively.",
     img: "/assets/images/lab-feature.jpg",
     features: [
-      "Clear Algae Water",
-      "Clear Cloudy Water",
-      "Pool Flocking",
-      "Stains Removal",
-      "Eliminate Over-Chlorine Levels",
-      "Water Discolorations",
-      "Filter Cleaning",
+      "Clear algae water",
+      "Clear cloudy water",
+      "Pool flocking",
+      "Stain removal",
+      "Eliminate over-chlorine levels",
+      "Water discolorations",
+      "Filter cleaning",
     ],
   },
 ];
@@ -75,89 +75,146 @@ export default function ServicePage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden">
-        <div className="relative h-72 md:h-96">
-          <Image
-            src="/assets/images/service-hero.jpg"
-            alt="Pool Pro&Lab Services"
-            fill
-            className="object-cover object-center"
-            priority
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-[var(--navy)]/50 via-[var(--navy)]/40 to-[var(--navy)]/80" />
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-6">
-            <p className="font-heading text-xs uppercase tracking-widest text-[var(--aqua)] font-[700] mb-3">
-              Professional Pool Care
-            </p>
-            <h1 className="font-heading text-3xl md:text-5xl font-[800] mb-3">
-              Our Services
-            </h1>
-            <p className="text-white/80 text-base md:text-lg">
-              Purity your swimming pool
-            </p>
+      <section className="border-b border-black/[0.08]">
+        <div className="max-w-7xl mx-auto px-6 pt-20 pb-16 md:pt-28 md:pb-24">
+          <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-black/50 mb-10">
+            Services — Pool care, end to end
+          </p>
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-end">
+            <div className="lg:col-span-7">
+              <h1 className="font-heading font-[700] text-[clamp(2.5rem,6vw,5.25rem)] leading-[0.95] tracking-[-0.02em] text-[var(--navy)]">
+                Five services.
+                <br />
+                One team that <span className="text-[var(--aqua)]">owns the outcome.</span>
+              </h1>
+            </div>
+            <div className="lg:col-span-5">
+              <p className="text-[var(--navy)]/70 text-base md:text-lg leading-relaxed max-w-md">
+                From a single water problem to a full maintenance contract — handled by the
+                technicians who&apos;ve worked on Thailand&apos;s pools for two decades.
+              </p>
+              <div className="flex items-center gap-6 mt-8">
+                <Link
+                  href="/contactus"
+                  className="inline-flex items-center gap-2 px-5 py-3 bg-[var(--navy)] text-white text-sm font-[600] hover:bg-black transition-colors"
+                >
+                  Get in touch
+                  <ArrowUpRight className="w-4 h-4" />
+                </Link>
+                <Link
+                  href="/lab"
+                  className="text-sm font-[600] text-[var(--navy)] underline underline-offset-[6px] decoration-[var(--aqua)] decoration-2 hover:decoration-[var(--navy)] transition-colors"
+                >
+                  Visit the lab
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          <div className="relative aspect-[16/8] mt-16 md:mt-24 overflow-hidden bg-[oklch(0.96_0.01_220)]">
+            <Image
+              src="/assets/images/service-hero.jpg"
+              alt="Pool Pro&Lab Services"
+              fill
+              className="object-cover object-center"
+              priority
+              sizes="(max-width: 1280px) 100vw, 1280px"
+            />
           </div>
         </div>
       </section>
 
-      {/* Services */}
-      <section className="max-w-7xl mx-auto px-6 py-20 space-y-20">
-        {services.map((svc, i) => (
-          <div
-            key={svc.title}
-            className={`grid lg:grid-cols-2 gap-12 items-center ${i % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""}`}
-          >
-            <div className="relative rounded-2xl overflow-hidden aspect-[4/3] shadow-lg">
-              <Image
-                src={svc.img}
-                alt={svc.title}
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-tr from-[var(--navy)]/10 to-transparent" />
-            </div>
-            <div>
-              <div className="w-12 h-12 rounded-xl bg-[var(--aqua)]/10 flex items-center justify-center mb-5">
-                <svc.icon className="w-6 h-6 text-[var(--aqua)]" />
+      {/* Services list — alternating editorial */}
+      <section className="border-b border-black/[0.08]">
+        <div className="max-w-7xl mx-auto px-6">
+          {services.map((svc, i) => {
+            const reverse = i % 2 === 1;
+            return (
+              <div
+                key={svc.title}
+                className={`grid lg:grid-cols-12 gap-10 lg:gap-16 items-center py-20 md:py-28 ${
+                  i !== services.length - 1 ? "border-b border-black/[0.08]" : ""
+                }`}
+              >
+                <div
+                  className={`lg:col-span-7 ${reverse ? "lg:order-2" : ""}`}
+                >
+                  <div className="relative aspect-[5/4] overflow-hidden bg-[oklch(0.96_0.01_220)]">
+                    <Image
+                      src={svc.img}
+                      alt={svc.title}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 60vw"
+                    />
+                  </div>
+                </div>
+                <div className={`lg:col-span-5 ${reverse ? "lg:order-1" : ""}`}>
+                  <span className="font-mono text-[11px] tracking-[0.18em] uppercase text-black/40 block mb-8">
+                    {svc.n}
+                  </span>
+                  <h2 className="font-heading font-[700] text-3xl md:text-4xl text-[var(--navy)] mb-5 tracking-[-0.02em] leading-[1.1]">
+                    {svc.title}
+                  </h2>
+                  <p className="text-[var(--navy)]/70 leading-relaxed mb-6">
+                    {svc.description}
+                  </p>
+                  {svc.features.length > 0 && (
+                    <ul className="border-t border-black/[0.08]">
+                      {svc.features.map((f, j) => (
+                        <li
+                          key={f}
+                          className="flex items-start gap-6 py-3 border-b border-black/[0.08] text-sm text-[var(--navy)]"
+                        >
+                          <span className="font-mono text-[11px] text-black/40 pt-0.5 tabular-nums">
+                            {String(j + 1).padStart(2, "0")}
+                          </span>
+                          <span className="leading-relaxed">{f}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
               </div>
-              <h2 className="font-heading text-2xl md:text-3xl font-[800] text-[var(--navy)] mb-4">
-                {svc.title}
-              </h2>
-              <p className="text-[var(--navy)]/70 leading-relaxed mb-5">
-                {svc.description}
-              </p>
-              {svc.features.length > 0 && (
-                <ul className="space-y-2">
-                  {svc.features.map((f) => (
-                    <li key={f} className="flex items-center gap-2.5 text-sm text-[var(--navy)]/80">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[var(--aqua)] shrink-0" />
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          </div>
-        ))}
+            );
+          })}
+        </div>
       </section>
 
-      {/* CTA */}
-      <section className="bg-[var(--navy)] text-white py-16">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="font-heading text-2xl md:text-3xl font-[800] mb-4">
-            Ready to Keep Your Pool in Perfect Condition?
-          </h2>
-          <p className="text-white/70 mb-8 leading-relaxed">
-            Contact us today to book any of our professional pool services across Bangkok,
-            Chiang Mai, Chiang Rai, and Hua Hin.
-          </p>
-          <Link
-            href="/contactus"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--aqua)] text-white font-heading font-[700] rounded-full hover:opacity-90 transition-opacity"
-          >
-            Get in Touch <ArrowRight className="w-4 h-4" />
-          </Link>
+      {/* CTA close */}
+      <section>
+        <div className="max-w-7xl mx-auto px-6 py-20 md:py-28">
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-end">
+            <div className="lg:col-span-7">
+              <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-black/50 mb-4">
+                Ready when you are
+              </p>
+              <h2 className="font-heading font-[700] text-3xl md:text-5xl tracking-[-0.02em] text-[var(--navy)] leading-[1.05]">
+                Bangkok, Chiang Mai, Chiang Rai, Hua Hin —{" "}
+                <span className="text-[var(--aqua)]">we cover the country.</span>
+              </h2>
+            </div>
+            <div className="lg:col-span-5">
+              <p className="text-[var(--navy)]/70 leading-relaxed mb-8 max-w-md">
+                Tell us what you need and we&apos;ll get the right technician to your pool.
+              </p>
+              <div className="flex items-center gap-6">
+                <Link
+                  href="/contactus"
+                  className="inline-flex items-center gap-2 px-5 py-3 bg-[var(--navy)] text-white text-sm font-[600] hover:bg-black transition-colors"
+                >
+                  Contact us
+                  <ArrowUpRight className="w-4 h-4" />
+                </Link>
+                <Link
+                  href="/shop"
+                  className="text-sm font-[600] text-[var(--navy)] underline underline-offset-[6px] decoration-[var(--aqua)] decoration-2 hover:decoration-[var(--navy)] transition-colors"
+                >
+                  Browse equipment
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </>

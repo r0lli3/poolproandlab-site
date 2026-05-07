@@ -5,6 +5,9 @@
 /.playwright-mcp/
 /screenshots/
 
+# Claude harness state (local-only)
+/.claude/scheduled_tasks.lock
+
 # dependencies
 /node_modules
 /.pnp
