@@ -11,11 +11,11 @@ const shopLinks: Array<{ key: "robot" | "chemicals" | "pumps" | "salt" | "minera
   { key: "mineral", href: "/shop/category/mineral-swim" },
 ];
 
-const serviceLinks: Array<{ key: "lab" | "ourServices" | "maintenance" | "newsActivities" | "contact"; href: string }> = [
+const serviceLinks: Array<{ key: "lab" | "ourServices" | "maintenance" | "bookLabTest" | "contact"; href: string }> = [
   { key: "lab", href: "/lab" },
   { key: "ourServices", href: "/service" },
   { key: "maintenance", href: "/service" },
-  { key: "newsActivities", href: "/news" },
+  { key: "bookLabTest", href: "/book-lab-test" },
   { key: "contact", href: "/contactus" },
 ];
 
@@ -27,19 +27,15 @@ export async function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-3 mb-5">
+            <Link href="/" className="inline-block mb-5">
               <Image
-                src="/assets/logos/ppl-circle-large.png"
+                src="/assets/logos/ppl-logo-white.png"
                 alt="Pool Pro&Lab"
-                width={56}
-                height={56}
-                className="h-14 w-14 object-contain"
+                width={512}
+                height={512}
+                className="h-20 w-auto object-contain"
               />
-              <div className="font-heading">
-                <p className="text-2xl font-[800] leading-none">Pool</p>
-                <p className="text-base font-[600] leading-tight tracking-wide">Pro&amp;Lab</p>
-              </div>
-            </div>
+            </Link>
             <p className="text-white/60 text-sm leading-relaxed mb-6">{t("footer.about")}</p>
             <div className="flex items-center gap-4">
               <a

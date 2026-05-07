@@ -19,7 +19,7 @@ const SERVICES: Array<{ key: ServiceKey; icon: typeof FlaskConical; img: string;
   { key: "treatment", icon: Droplets, img: "/assets/images/service-water-treatment.jpg", featureCount: 4 },
   { key: "care", icon: Wrench, img: "/assets/images/service-pool-care.jpg", featureCount: 0 },
   { key: "maintenance", icon: Wrench, img: "/assets/images/service-maintenance.jpg", featureCount: 6 },
-  { key: "eliminator", icon: Zap, img: "/assets/images/lab-feature.jpg", featureCount: 7 },
+  { key: "eliminator", icon: Zap, img: "/assets/images/service-eliminator.jpg", featureCount: 7 },
 ];
 
 export default async function ServicePage() {

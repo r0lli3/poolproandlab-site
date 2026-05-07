@@ -26,7 +26,6 @@ export function Header({ locale }: { locale: Locale }) {
     { label: t("nav.shop"), href: "/shop" },
     { label: t("nav.lab"), href: "/lab" },
     { label: t("nav.service"), href: "/service" },
-    { label: t("nav.news"), href: "/news" },
     {
       label: t("nav.franchise"),
       href: "#",
@@ -135,7 +134,7 @@ export function Header({ locale }: { locale: Locale }) {
               )
             )}
             <Link
-              href="/contactus"
+              href="/book-lab-test"
               className="ml-2 px-5 py-2 bg-[var(--aqua)] text-white text-sm font-heading font-[700] rounded-full hover:opacity-90 transition-opacity"
             >
               {t("common.bookLabTest")}
@@ -209,7 +208,7 @@ export function Header({ locale }: { locale: Locale }) {
             )}
             <div className="pt-4">
               <Link
-                href="/contactus"
+                href="/book-lab-test"
                 className="block text-center px-5 py-2.5 bg-[var(--aqua)] text-white text-sm font-heading font-[700] rounded-full hover:opacity-90 transition-opacity"
                 onClick={() => setMobileOpen(false)}
               >
