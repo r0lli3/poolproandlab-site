@@ -72,7 +72,7 @@ export function Footer() {
       {/* Main link grid */}
       <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-2 md:grid-cols-12 gap-10">
         {/* Brand */}
-        <div className="col-span-2 md:col-span-4">
+        <div className="col-span-2 md:col-span-3">
           <Image
             src="/assets/logos/logo-site.jpg"
             alt="Pool Pro&Lab"
@@ -164,11 +164,11 @@ export function Footer() {
         </div>
 
         {/* Branches */}
-        <div className="col-span-1 md:col-span-2">
+        <div className="col-span-2 md:col-span-3">
           <p className="font-mono text-[11px] tracking-[0.18em] uppercase text-black/50 mb-5">
             Branches
           </p>
-          <ul className="space-y-2.5">
+          <ul className="grid grid-cols-2 gap-x-6 gap-y-3">
             {branches.map((b) => (
               <li key={b.name} className="text-sm">
                 <span className="text-[var(--navy)] font-[500] block">{b.name}</span>
