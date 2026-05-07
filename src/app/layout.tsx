@@ -1,20 +1,20 @@
 import type { Metadata } from "next";
-import { Syne, Nunito_Sans } from "next/font/google";
+import { Raleway, Roboto } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 
-const syne = Syne({
-  variable: "--font-syne",
+const raleway = Raleway({
+  variable: "--font-raleway",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["300", "400", "500", "600", "700", "800"],
   display: "swap",
 });
 
-const nunitoSans = Nunito_Sans({
-  variable: "--font-nunito",
+const roboto = Roboto({
+  variable: "--font-roboto",
   subsets: ["latin"],
-  weight: ["300", "400", "600", "700"],
+  weight: ["300", "400", "500", "700"],
   display: "swap",
 });
 
@@ -41,7 +41,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${syne.variable} ${nunitoSans.variable} h-full`}
+      className={`${raleway.variable} ${roboto.variable} h-full`}
     >
       <body className="min-h-full flex flex-col antialiased">
         <Header />
