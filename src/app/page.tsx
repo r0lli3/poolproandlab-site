@@ -152,7 +152,7 @@ export default async function HomePage() {
                   />
                 </div>
                 <div className="flex items-end justify-between">
-                  <span className="font-heading font-[600] text-sm text-[var(--navy)] leading-tight">
+                  <span className="font-heading font-[600] text-base md:text-lg text-[var(--navy)] leading-tight">
                     {cat.name}
                   </span>
                   <ArrowUpRight className="w-4 h-4 text-black/30 group-hover:text-[var(--aqua)] transition-colors" />
@@ -203,9 +203,9 @@ export default async function HomePage() {
                 {labChecks.map((item, i) => (
                   <li
                     key={item}
-                    className="flex items-start gap-6 py-4 border-b border-black/[0.08] text-sm text-[var(--navy)]"
+                    className="flex items-start gap-6 py-5 border-b border-black/[0.08] text-base md:text-lg text-[var(--navy)]"
                   >
-                    <span className="font-mono text-[11px] text-black/40 pt-0.5 tabular-nums">
+                    <span className="font-mono text-[13px] text-black/40 pt-1 tabular-nums">
                       0{i + 1}
                     </span>
                     <span className="leading-relaxed">{item}</span>

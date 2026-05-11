@@ -44,21 +44,21 @@ export function Header({ locale }: { locale: Locale }) {
     <>
       {/* Quiet utility strip */}
       <div className="hidden md:block border-b border-black/[0.08]">
-        <div className="max-w-7xl mx-auto px-6 py-2 flex items-center justify-between font-mono text-[11px] tracking-[0.14em] uppercase text-black/55">
+        <div className="max-w-7xl mx-auto px-6 py-2.5 flex items-center justify-between font-mono text-[13px] tracking-[0.14em] uppercase text-black/55">
           <span>{t("topBar.blurb")}</span>
           <div className="flex items-center gap-6">
             <a
               href="tel:0818445564"
               className="flex items-center gap-1.5 hover:text-[var(--aqua)] transition-colors"
             >
-              <Phone className="w-3 h-3" />
+              <Phone className="w-3.5 h-3.5" />
               081-844-5564
             </a>
             <a
               href="mailto:info@poolproandlab.com"
               className="flex items-center gap-1.5 hover:text-[var(--aqua)] transition-colors"
             >
-              <Mail className="w-3 h-3" />
+              <Mail className="w-3.5 h-3.5" />
               info@poolproandlab.com
             </a>
             <LocaleToggle current={locale} variant="light" />
@@ -75,15 +75,15 @@ export function Header({ locale }: { locale: Locale }) {
             : "bg-white border-black/[0.08]"
         )}
       >
-        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 shrink-0">
             <Image
               src="/assets/logos/logo-site.jpg"
               alt="Pool Pro&Lab"
-              width={120}
-              height={44}
-              className="h-9 w-auto object-contain"
+              width={160}
+              height={60}
+              className="h-12 w-auto object-contain"
               priority
             />
           </Link>
@@ -94,12 +94,12 @@ export function Header({ locale }: { locale: Locale }) {
               link.children ? (
                 <div key={link.label} className="relative group">
                   <button
-                    className="flex items-center gap-1 px-3 py-2 text-sm font-[500] text-[var(--navy)] hover:text-[var(--aqua)] transition-colors"
+                    className="flex items-center gap-1 px-3 py-2 text-base font-[500] text-[var(--navy)] hover:text-[var(--aqua)] transition-colors"
                     onMouseEnter={() => setFranchiseOpen(true)}
                     onMouseLeave={() => setFranchiseOpen(false)}
                   >
                     {link.label}
-                    <ChevronDown className="w-3.5 h-3.5 transition-transform group-hover:rotate-180" />
+                    <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
                   </button>
                   <div
                     className={cn(
@@ -114,7 +114,7 @@ export function Header({ locale }: { locale: Locale }) {
                         <Link
                           key={child.href}
                           href={child.href}
-                          className="block px-4 py-2.5 text-sm text-[var(--navy)] hover:text-[var(--aqua)] hover:bg-[oklch(0.97_0.01_220)] transition-colors"
+                          className="block px-4 py-2.5 text-base text-[var(--navy)] hover:text-[var(--aqua)] hover:bg-[oklch(0.97_0.01_220)] transition-colors"
                         >
                           {child.label}
                         </Link>
@@ -126,7 +126,7 @@ export function Header({ locale }: { locale: Locale }) {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="px-3 py-2 text-sm font-[500] text-[var(--navy)] hover:text-[var(--aqua)] transition-colors"
+                  className="px-3 py-2 text-base font-[500] text-[var(--navy)] hover:text-[var(--aqua)] transition-colors"
                 >
                   {link.label}
                 </Link>
@@ -134,7 +134,7 @@ export function Header({ locale }: { locale: Locale }) {
             )}
             <Link
               href="/lab"
-              className="ml-3 px-5 py-2 bg-[var(--navy)] text-white text-sm font-[600] hover:bg-black transition-colors"
+              className="ml-3 px-5 py-2.5 bg-[var(--navy)] text-white text-base font-[600] hover:bg-black transition-colors"
             >
               {t("common.bookLabTest")}
             </Link>
